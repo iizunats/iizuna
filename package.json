@@ -1,0 +1,29 @@
+{
+  "name": "typescript-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nano1237/typescript-components.git"
+  },
+  "author": "Tim Rücker",
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nano1237/typescript-components/issues"
+  },
+  "homepage": "https://github.com/Nano1237/typescript-components",
+  "engines": {},
+  "dependencies": {
+    "@webcomponents/template": "^1.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.1.6",
+    "gulp-typescript": "^5.0.0-alpha.3",
+    "browserify": "^16.2.3"
+  }
+}

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>TypeScript Components</title>
+  </head>
+<body>
+
+
+<div>
+  <h2>Produkt liste</h2>
+  <div>
+    <div>
+      <h4>Tisch</h4>
+      <p>Das ist die Produktbeschreibung des Tisches</p>
+      <a href="https://www.google.de/produkte/tische">Zum Produkt</a>
+    </div>
+  </div>
+</div>
+
+<template data-component="ProductListItem">
+  <div>
+    <h4>{{title}}</h4>
+    <p>{{description}}</p>
+    <a href="https://www.google.de/produkte/{{title}}">Zum Produkt</a>
+  </div>
+</template>
+
+
+
+
+
+
+
+
+
+  <script data-main="main" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+
+  <script src="./built/local/output.js"></script>
+  </body>
+</html>
