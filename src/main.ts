@@ -1,6 +1,4 @@
-import {template} from "./polyfill/template";
-import {DomParser} from "./dom-parser";
+import {ToTopComponent} from "./examples/to-top.component";
 
 
-new DomParser();
-console.log(template);
+new ToTopComponent();

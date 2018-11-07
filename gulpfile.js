@@ -6,7 +6,8 @@ gulp.task('default', function () {
     .pipe(ts({
       noImplicitAny: true,
       outFile: 'output.js',
-      module:'amd'
+      module:'amd',
+      experimentalDecorators:true
     }))
     .pipe(gulp.dest('built/local'));
 });
