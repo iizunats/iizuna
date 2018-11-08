@@ -56,7 +56,7 @@ export const DomReady = new class DomReady {
             var numStyles;
             (function anon() {
                 if (self.isReady) return;
-                if (document.readyState != "loaded" && document.readyState != "complete") {
+                if ((document as any).readyState != "loaded" && document.readyState != "complete") {
                     setTimeout(anon, 0);
                     return;
                 }
@@ -101,7 +101,9 @@ export const DomReady = new class DomReady {
     addLoadEvent() {
         const oldOnLoad = window.onload;
         if (typeof window.onload != 'function') {
-            window.onload = this.domReady;
+            window.onload = ()=>{
+                this.domReady();
+            };
         } else {
             window.onload = () => {
                 if (oldOnLoad) {
