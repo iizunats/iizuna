@@ -1,13 +1,18 @@
-var gulp = require('gulp');
-var ts = require('gulp-typescript');
+var gulp = require("gulp");
+var browserify = require("browserify");
+var source = require('vinyl-source-stream');
+var tsify = require("tsify");
 
-gulp.task('default', function () {
-  return gulp.src('src/**/*.ts')
-    .pipe(ts({
-      noImplicitAny: true,
-      outFile: 'output.js',
-      module:'amd',
-      experimentalDecorators:true
-    }))
-    .pipe(gulp.dest('built/local'));
+gulp.task("default",  function () {
+  return browserify({
+    basedir: '.',
+    debug: true,
+    entries: ['src/main.ts'],
+    cache: {},
+    packageCache: {}
+  })
+    .plugin(tsify)
+    .bundle()
+    .pipe(source('output.js'))
+    .pipe(gulp.dest("built/local"));
 });

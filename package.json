@@ -18,12 +18,12 @@
   },
   "homepage": "https://github.com/Nano1237/typescript-components",
   "engines": {},
-  "dependencies": {
-    "@webcomponents/template": "^1.4.0"
-  },
   "devDependencies": {
-    "typescript": "^3.1.6",
+    "browserify": "^16.2.3",
     "gulp-typescript": "^5.0.0-alpha.3",
-    "browserify": "^16.2.3"
+    "tsify": "^4.0.0",
+    "typescript": "^3.1.6",
+    "vinyl-source-stream": "^2.0.0",
+    "webpack-stream": "^5.1.1"
   }
 }
