@@ -6,20 +6,7 @@ Beinhaltet FE betriebslogiken wie z.B:
 
 - to top button
     - event listeners (click)
-    - scroll smooth auslösen (top 0)
-    
-    
-```html
-<button to-top>To top</button>
-```
-
-```typescript
-new Directive(new class A{});
-
-```
-    
-    
-    
+    - scroll smooth auslösen (top 0)    
 - scroll to element (z.b. CTA mit link zu h1)
     - event listener (click)
     - scroll smooth (to target)
