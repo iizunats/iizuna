@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>TypeScript Components</title>
+</head>
+<body>
+<div>
+  <h1>Akkordion Example</h1>
+  <div>
+    <style>
+      .active {
+        font-weight: bold;
+      }
+
+      .inactive {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      .accordion-content {
+        transition: height .25s linear;
+        border: 1px solid #ccc;
+        border-top: 0;
+        overflow: hidden;
+      }
+    </style>
+
+    <div data-accordion>
+      <h2>Accordion eins</h2>
+      <div class="active" data-accordion-header="1">Header 1</div>
+      <div class="accordion-content" data-accordion-content="1">content 1</div>
+      <div class="active" data-accordion-header="2">Header 2</div>
+      <div class="accordion-content" data-accordion-content="2">content 2</div>
+    </div>
+    <div data-accordion>
+      <h2>Accordion zwei</h2>
+      <div class="active" data-accordion-header="1">Header 3</div>
+      <div class="accordion-content" data-accordion-content="1">content 3</div>
+      <div class="active" data-accordion-header="2">Header 4</div>
+      <div class="accordion-content" data-accordion-content="2">content 4</div>
+    </div>
+  </div>
+
+</div>
+<script src="./built/local/output.js"></script>
+</body>
+</html>
