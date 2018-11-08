@@ -4,16 +4,7 @@
 #### TypeScript
 Beinhaltet FE betriebslogiken wie z.B:
 
-- to top button
-    - event listeners (click)
-    - scroll smooth auslösen (top 0)    
-- scroll to element (z.b. CTA mit link zu h1)
-    - event listener (click)
-    - scroll smooth (to target)
-- akkordion
-    - event listeners (click)
-    - klassen von elementen tauschen (aktiv, open, closed, inaktiv)
-    - animationen auf akkordion ermöglichen
+
 - slider
     - externe lib
 - menüs
@@ -22,8 +13,6 @@ Beinhaltet FE betriebslogiken wie z.B:
     - anfrage an api
     - rückgabe in DOM einfügen
     - loader anzeigen
-- tabs
-    (siehe akkordions)
 - modals
     - event listeners (click)
     - klassen von elementen tauschen
