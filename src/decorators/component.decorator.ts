@@ -3,6 +3,7 @@ import {OnReady} from "../interfaces/on-ready.interface";
 import {ComponentInternal} from "../interfaces/component.interface";
 import {ListenerConfiguration} from "./event-listener.decorator";
 import {HtmlElementUtility} from "../helpers/html-element-utility";
+import {ComponentRegistry} from "../helpers/component.registry";
 
 export function Component(options: { selector: string, childrenSelectors?: any }) {
     return function <T extends { new(...args: any[]): {} }>(target: T) {
@@ -23,6 +24,7 @@ export function Component(options: { selector: string, childrenSelectors?: any }
                     getAttributeValuesOfProperties(individualComponent);
                     applyEventListeners(individualComponent);
                     callReadyListener(individualComponent);
+                    ComponentRegistry.registerComponent(options.selector, individualComponent);
                 }
             }
         };
@@ -55,7 +57,7 @@ export function Component(options: { selector: string, childrenSelectors?: any }
             if (!object.__elementAttributes.hasOwnProperty(name)) {
                 continue;
             }
-            let att = object.element.getAttribute(name);
+            let att = HtmlElementUtility.getSelectorValue(name, object.element);
             if (att !== null) {
                 object[name] = att;
             }
