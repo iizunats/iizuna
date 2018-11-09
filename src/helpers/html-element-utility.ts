@@ -14,4 +14,15 @@ export abstract class HtmlElementUtility {
         const clearedSelector = selector.replace(/^data-/, '');
         return element.getAttribute(clearedSelector) || element.getAttribute('data-' + clearedSelector);
     }
+
+    public static isDescendant(parent: Element, child: Element) {
+        let node = child.parentNode;
+        while (node != null) {
+            if (node == parent) {
+                return true;
+            }
+            node = node.parentNode;
+        }
+        return false;
+    }
 }
