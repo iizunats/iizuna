@@ -1,7 +1,7 @@
-import {Component} from "../decorators/component.decorator";
-import {EventListener} from "../decorators/event-listener.decorator";
-import {smoothScroll} from "../helpers/scroll";
-import {ElementAttribute} from "../decorators/element-attribute.decorator";
+import {Component} from "../../decorators/component.decorator";
+import {EventListener} from "../../decorators/event-listener.decorator";
+import {smoothScroll} from "../../helpers/scroll";
+import {ElementAttribute} from "../../decorators/element-attribute.decorator";
 
 @Component({
     selector: 'scroll-top'
