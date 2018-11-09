@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/Nano1237/typescript-components",
   "engines": {},
+  "dependencies": {
+    "es6-promise": "^4.2.5"
+  },
   "devDependencies": {
     "browserify": "^16.2.3",
     "gulp-typescript": "^5.0.0-alpha.3",
