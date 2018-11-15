@@ -1,32 +1,36 @@
 {
-  "name": "typescript-components",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.html",
-  "scripts": {
-    "test": "gulp test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Nano1237/typescript-components.git"
-  },
-  "author": "Tim Rücker",
-  "contributors": [],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Nano1237/typescript-components/issues"
-  },
-  "homepage": "https://github.com/Nano1237/typescript-components",
-  "engines": {},
-  "dependencies": {
-    "es6-promise": "^4.2.5"
-  },
-  "devDependencies": {
-    "browserify": "^16.2.3",
-    "gulp-typescript": "^5.0.0-alpha.3",
-    "tsify": "^4.0.0",
-    "typescript": "^3.1.6",
-    "vinyl-source-stream": "^2.0.0",
-    "webpack-stream": "^5.1.1"
-  }
+	"name": "typescript-components",
+	"version": "1.0.0",
+	"description": "",
+	"main": "lib/main.js",
+	"types": "lib/index.d.ts",
+	"scripts": {
+		"test": "gulp test",
+		"build": "tsc",
+		"prepare": "npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Nano1237/typescript-components.git"
+	},
+	"author": "Tim Rücker",
+	"contributors": [],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Nano1237/typescript-components/issues"
+	},
+	"homepage": "https://github.com/Nano1237/typescript-components",
+	"engines": {},
+	"dependencies": {
+		"es6-promise": "^4.2.5",
+		"pluralize": "^7.0.0"
+	},
+	"devDependencies": {
+		"browserify": "^16.2.3",
+		"gulp-typescript": "^5.0.0-alpha.3",
+		"tsify": "^4.0.0",
+		"typescript": "^3.1.6",
+		"vinyl-source-stream": "^2.0.0",
+		"webpack-stream": "^5.1.1"
+	}
 }

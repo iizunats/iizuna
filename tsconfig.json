@@ -1,10 +1,18 @@
 {
-  "files": [
-    "src/main.ts"
-  ],
-  "compilerOptions": {
-    "noImplicitAny": true,
-    "target": "es5",
-    "experimentalDecorators": true
-  }
+	"include": [
+		"src"
+	],
+	"exclude": [
+		"node_modules",
+		"examples"
+	],
+	"compilerOptions": {
+		"noImplicitAny": true,
+		"target": "es5",
+		"experimentalDecorators": true,
+		"module": "commonjs",
+		"declaration": true,
+		"outDir": "./lib",
+		"strict": false
+	}
 }

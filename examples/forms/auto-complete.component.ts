@@ -1,10 +1,10 @@
-import {Component} from "../../decorators/component.decorator";
-import {Component as ComponentInterface} from "../../interfaces/component.interface";
-import {EventListener} from "../../decorators/event-listener.decorator";
-import {ElementAttribute} from "../../decorators/element-attribute.decorator";
+import {Component} from "../../src/decorators/component.decorator";
+import {Component as ComponentInterface} from "../../src/interfaces/component.interface";
+import {EventListener} from "../../src/decorators/event-listener.decorator";
+import {ElementAttribute} from "../../src/decorators/element-attribute.decorator";
 import {Promise} from "es6-promise";
 import {AutoCompleteHelper} from "./auto-complete-helper";
-import {HtmlElementUtility} from "../../helpers/html-element-utility";
+import {HtmlElementUtility} from "../../src/helpers/html-element-utility";
 
 
 export interface OptionItem {

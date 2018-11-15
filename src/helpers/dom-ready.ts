@@ -1,9 +1,9 @@
 export const DomReady = new class DomReady {
-    private readyBound: boolean = false;
-    private isReady: boolean = false;
-    private readyList: Array<() => {}> = [];
-    private userAgent: string = navigator.userAgent.toLowerCase();
-    private isOpera: boolean;
+    public readyBound: boolean = false;
+    public isReady: boolean = false;
+    public readyList: Array<() => {}> = [];
+    public userAgent: string = navigator.userAgent.toLowerCase();
+    public isOpera: boolean;
 
 
     constructor() {

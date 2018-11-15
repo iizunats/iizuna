@@ -2,7 +2,7 @@ import {ComponentInternal} from "../interfaces/component.interface";
 import {HtmlElementUtility} from "./html-element-utility";
 
 export const ComponentRegistry = new class {
-    private componentRegister: any = {};
+    public componentRegister: any = {};
 
     public registerComponent(selector: string, individualComponent: ComponentInternal) {
         if (typeof this.componentRegister[selector] === 'undefined') {

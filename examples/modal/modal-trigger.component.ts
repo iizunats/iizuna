@@ -1,8 +1,8 @@
-import {Component} from "../../decorators/component.decorator";
-import {Component as ComponentInterface} from "../../interfaces/component.interface";
-import {EventListener} from "../../decorators/event-listener.decorator";
-import {ElementAttribute} from "../../decorators/element-attribute.decorator";
-import {ComponentRegistry} from "../../helpers/component.registry";
+import {Component} from "../../src/decorators/component.decorator";
+import {Component as ComponentInterface} from "../../src/interfaces/component.interface";
+import {EventListener} from "../../src/decorators/event-listener.decorator";
+import {ElementAttribute} from "../../src/decorators/element-attribute.decorator";
+import {ComponentRegistry} from "../../src/helpers/component.registry";
 
 @Component({
     selector: 'modal-trigger'

@@ -1,8 +1,8 @@
-import {Component} from "../decorators/component.decorator";
-import {EventListener} from "../decorators/event-listener.decorator";
-import {HtmlElementUtility} from "../helpers/html-element-utility";
-import {Component as ComponentInterface} from "../interfaces/component.interface";
-import {ElementAttribute} from "../decorators/element-attribute.decorator";
+import {Component} from "../src/decorators/component.decorator";
+import {EventListener} from "../src/decorators/event-listener.decorator";
+import {HtmlElementUtility} from "../src/helpers/html-element-utility";
+import {Component as ComponentInterface} from "../src/interfaces/component.interface";
+import {ElementAttribute} from "../src/decorators/element-attribute.decorator";
 
 const HEADER_SELECTOR = 'accordion-header';
 const CONTENT_SELECTOR = 'accordion-content';
