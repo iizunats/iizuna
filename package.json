@@ -1,9 +1,9 @@
 {
 	"name": "typescript-components",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "",
 	"main": "lib/main.js",
-	"types": "lib/index.d.ts",
+	"types": "lib/main.d.ts",
 	"scripts": {
 		"test": "gulp test",
 		"build": "tsc",
