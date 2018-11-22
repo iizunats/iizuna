@@ -1,5 +1,5 @@
 export abstract class ConfigRegistry {
-	protected static configs: any = {};
+	public static configs: any = {};
 
 	public static setConfig(name: string, value: any) {
 		this.configs[name] = value;
