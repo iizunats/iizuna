@@ -1,11 +1,10 @@
 {
 	"name": "typescript-components",
-	"version": "1.1.5",
+	"version": "1.1.6",
 	"description": "",
 	"main": "lib/src/main.js",
 	"types": "lib/src/main.d.ts",
 	"scripts": {
-		"test": "gulp test",
 		"build": "tsc",
 		"prepare": "npm run build"
 	},
@@ -27,7 +26,6 @@
 	},
 	"devDependencies": {
 		"browserify": "^16.2.3",
-		"gulp-typescript": "^5.0.0-alpha.3",
 		"tsify": "^4.0.0",
 		"typescript": "^3.1.6",
 		"vinyl-source-stream": "^2.0.0",
