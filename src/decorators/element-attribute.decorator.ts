@@ -1,5 +1,5 @@
 export function ElementAttribute() {
-    return function (target: any, propertyKey: string) {
+    return (target: any, propertyKey: string) => {
         if (typeof target.__elementAttributes === "undefined") {
             target.__elementAttributes = {};
         }
