@@ -31,7 +31,7 @@ export function Component(options: { selector: string, childrenSelectors?: any }
     };
 
     function callReadyListener(individualComponent: ComponentInternal) {
-        let onReadyCasted = individualComponent as unknown as OnReady;
+        let onReadyCasted = individualComponent as {} as OnReady;
         if ('onReady' in individualComponent && typeof onReadyCasted.onReady === 'function') {
             onReadyCasted.onReady();
         }
