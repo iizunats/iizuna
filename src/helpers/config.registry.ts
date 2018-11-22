@@ -6,6 +6,9 @@ export abstract class ConfigRegistry {
 	}
 
 	public static getConfig(name: string, defaultValue: any = null) {
-		return this.configs[name] || defaultValue;
+		if (typeof this.configs[name] === "undefined") {
+			return defaultValue;
+		}
+		return this.configs[name];
 	}
 }
