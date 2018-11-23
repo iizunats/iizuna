@@ -5,7 +5,6 @@ export function ElementAttribute(configRegistryIdentifier: string = '') {
 		if (typeof target.__elementAttributes === "undefined") {
 			target.__elementAttributes = {};
 		}
-		const targetValue = target[propertyKey];
-		target.__elementAttributes[propertyKey] = configRegistryIdentifier === '' ? targetValue : ConfigRegistry.getConfig(configRegistryIdentifier, targetValue);
+		target.__elementAttributes[propertyKey] = configRegistryIdentifier === '' ? target[propertyKey] : ConfigRegistry.getConfig(configRegistryIdentifier, target[propertyKey]);
 	};
 }
