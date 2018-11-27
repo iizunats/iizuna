@@ -1,7 +1,10 @@
 {
 	"name": "typescript-components",
 	"version": "2.0.0",
-	"description": "",
+	"description": "A TypeScript Framework for non-pwa pages (like content management systems)",
+	"keywords": [
+		"typescript", "non-pwa", "framework", "decorators"
+	],
 	"main": "lib/main.js",
 	"types": "lib/main.d.ts",
 	"scripts": {
@@ -21,14 +24,9 @@
 	"homepage": "https://github.com/Nano1237/typescript-components",
 	"engines": {},
 	"dependencies": {
-		"es6-promise": "^4.2.5",
-		"pluralize": "^7.0.0"
+		"es6-promise": "^4.2.5"
 	},
 	"devDependencies": {
-		"browserify": "^16.2.3",
-		"tsify": "^4.0.0",
-		"typescript": "^3.1.6",
-		"vinyl-source-stream": "^2.0.0",
-		"webpack-stream": "^5.1.1"
+		"typescript": "^3.1.6"
 	}
 }
