@@ -5,6 +5,7 @@ import {ListenerConfiguration} from "./event-listener.decorator";
 import {HtmlElementUtility} from "../helpers/html-element-utility";
 import {ComponentRegistry} from "../helpers/component.registry";
 import {Template} from "../classes/template";
+import {debounce} from "../helpers/debounce";
 
 export function Component(options: { selector: string, childrenSelectors?: any, template?: string }) {
 	return function <T extends { new(...args: any[]): {} }>(target: T) {
@@ -16,7 +17,7 @@ export function Component(options: { selector: string, childrenSelectors?: any, 
 					let templateObject = null;
 					if (typeof options.template === 'string') {
 						const templateElement = document.getElementById(options.template) as HTMLTemplateElement;
-						if (templateElement instanceof HTMLTemplateElement) {
+						if (typeof templateElement.innerHTML !== 'undefined') {//we no longer check the instance of, because of some polyfills that cant inherit from the HTMLTemplateElement
 							templateObject = new Template(templateElement.innerHTML);
 						}
 					}
@@ -94,10 +95,10 @@ export function Component(options: { selector: string, childrenSelectors?: any, 
 			if (hasChildSelectors(object.__eventListeners[name])) {
 				let listenerTargetElement = object.children[object.__eventListeners[name].childSelector];
 				for (let i = 0; i < listenerTargetElement.length; i++) {
-					applyEvent(listenerTargetElement[i], object.__eventListeners[name]);
+					applyEvent(listenerTargetElement[i], object, name);
 				}
 			} else {
-				applyEvent(object.element, object.__eventListeners[name]);
+				applyEvent(object.element, object, name);
 			}
 		}
 
@@ -106,10 +107,15 @@ export function Component(options: { selector: string, childrenSelectors?: any, 
 		}
 
 
-		function applyEvent(element: HTMLElement, configuration: ListenerConfiguration) {
-			element.addEventListener(configuration.type, function (event: Event) {
-				configuration.listener.apply(object, [this, event]);
-			});
+		function applyEvent(element: HTMLElement, object: any, name: string) {
+			let listener = function (event: Event) {
+				object.__eventListeners[name].listener.apply(object, [this, event]);
+			};
+			if (object.__debounced && object.__debounced[name]) {
+				listener = debounce(listener, object.__debounced[name]);
+			}
+
+			element.addEventListener(object.__eventListeners[name].type, listener);
 		}
 	}
 }
