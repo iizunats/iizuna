@@ -4,22 +4,31 @@ import {ComponentInternal} from "../interfaces/component.interface";
 import {ListenerConfiguration} from "./event-listener.decorator";
 import {HtmlElementUtility} from "../helpers/html-element-utility";
 import {ComponentRegistry} from "../helpers/component.registry";
+import {Template} from "../classes/template";
 
-export function Component(options: { selector: string, childrenSelectors?: any }) {
+export function Component(options: { selector: string, childrenSelectors?: any, template?: string }) {
 	return function <T extends { new(...args: any[]): {} }>(target: T) {
 		return class extends target {
 			constructor(...args: any[]) {
 				super();
 				DomReady.ready(() => {
 					const elements = HtmlElementUtility.querySelectAllByAttribute(options.selector);
+					let templateObject = null;
+					if (typeof options.template === 'string') {
+						const templateElement = document.getElementById(options.template) as HTMLTemplateElement;
+						if (templateElement instanceof HTMLTemplateElement) {
+							templateObject = new Template(templateElement.innerHTML);
+						}
+					}
 					for (let i = 0; i < elements.length; i++) {
-						createComponentWithElement(elements[i]);
+						createComponentWithElement(elements[i], templateObject);
 					}
 				});
 
-				function createComponentWithElement(element: HTMLElement) {
+				function createComponentWithElement(element: HTMLElement, template: Template) {
 					const individualComponent = new target() as ComponentInternal;
 					individualComponent.element = element;
+					individualComponent.template = template;
 					initializeChildrenElements(individualComponent);
 					getAttributeValuesOfProperties(individualComponent);
 					applyEventListeners(individualComponent);
