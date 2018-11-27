@@ -12,4 +12,5 @@ export interface ComponentInternal extends Component {
 	children?: any;
 	__eventListeners: ListenerConfiguration[];
 	__elementAttributes: any;
+	__options: any;
 }
