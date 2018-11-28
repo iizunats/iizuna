@@ -1,21 +1,31 @@
-export class ListenerConfiguration {
-	constructor(public listener: () => {},
-							public type: string,
-							public childSelector?: string) {
-	}
-}
+import {ComponentInternal} from "../interfaces/component.interface";
+import {debounce} from "../helpers/debounce";
+import {ComponentFactory} from "../helpers/component.factory";
 
 export function EventListener(type: string = null, childSelector: string = null) {
 	return function (target: any, propertyKey: string) {
-		if (typeof target.__eventListeners === "undefined") {
-			target.__eventListeners = {};
-		}
+		ComponentFactory.onComponentClassInitialized(function (object: ComponentInternal) {
+			if (childSelector && object.children[childSelector]) {
+				let listenerTargetElement = object.children[childSelector];
+				for (let i = 0; i < listenerTargetElement.length; i++) {
+					applyEvent(listenerTargetElement[i], object, propertyKey);
+				}
+			} else {
+				applyEvent(object.element, object, propertyKey);
+			}
 
-		target.__eventListeners[propertyKey] = new ListenerConfiguration(
-			target[propertyKey],
-			type === null ? propertyKey : type,
-			childSelector
-		);
+
+			function applyEvent(element: HTMLElement, object: any, name: string) {
+				let listener = function (event: Event) {
+					target[propertyKey].apply(object, [this, event]);
+				};
+				if (object.__debounced && object.__debounced[name]) {
+					listener = debounce(listener, object.__debounced[name]);
+				}
+
+				element.addEventListener(type === null ? propertyKey : type, listener);
+			}
+		}, target);
 	};
 }
 

@@ -1,3 +1,3 @@
 export interface OnReady {
-    onReady(): void;
+	onReady(): void;
 }
