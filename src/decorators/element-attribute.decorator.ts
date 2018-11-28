@@ -1,11 +1,11 @@
 import {ConfigRegistry} from "../helpers/config.registry";
 import {ComponentFactory} from "../helpers/component.factory";
 import {HtmlElementUtility} from "../helpers/html-element-utility";
-import {ComponentInternal} from "../interfaces/component.interface";
+import {ComponentInterface} from "../interfaces/component.interface";
 
 export function ElementAttribute(configRegistryIdentifier: string = '') {
 	return (target: any, propertyKey: string) => {
-		ComponentFactory.onComponentClassInitialized(function (object: ComponentInternal) {
+		ComponentFactory.onComponentClassInitialized(function (object: ComponentInterface) {
 			let att = HtmlElementUtility.getSelectorValue(propertyKey, object.element);
 			if (att !== null) { // first get the value of the element attribute
 				object[propertyKey] = att;

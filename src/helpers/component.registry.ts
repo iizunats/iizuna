@@ -1,10 +1,10 @@
-import {ComponentInternal} from "../interfaces/component.interface";
+import {ComponentInterface} from "../interfaces/component.interface";
 import {HtmlElementUtility} from "./html-element-utility";
 
 export const ComponentRegistry = new class {
 	public componentRegister: any = {};
 
-	public registerComponent(selector: string, individualComponent: ComponentInternal) {
+	public registerComponent(selector: string, individualComponent: ComponentInterface) {
 		if (typeof this.componentRegister[selector] === 'undefined') {
 			this.componentRegister[selector] = [];
 		}
@@ -17,7 +17,7 @@ export const ComponentRegistry = new class {
 
 	public getComponentsBySelectorAndIdentifier(selector: string, identifier: string) {
 		const components = this.getComponentsBySelector(selector);
-		return components.filter((element: ComponentInternal) => {
+		return components.filter((element: ComponentInterface) => {
 			return HtmlElementUtility.getSelectorValue(selector, element.element) === identifier;
 		});
 	}

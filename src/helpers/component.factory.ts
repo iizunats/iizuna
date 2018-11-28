@@ -1,4 +1,4 @@
-import {ComponentInternal} from "../interfaces/component.interface";
+import {ComponentInterface} from "../interfaces/component.interface";
 import {HtmlElementUtility} from "./html-element-utility";
 import {OnReady} from "../interfaces/on-ready.interface";
 import {ComponentRegistry} from "./component.registry";
@@ -26,7 +26,7 @@ export abstract class ComponentFactory {
 		individualComponent.__componentClassInitializedListeners.push(callback);
 	}
 
-	private static callComponentClassInitialized(individualComponent: ComponentInternal) {
+	private static callComponentClassInitialized(individualComponent: ComponentInterface) {
 		let abstractCasted = individualComponent as any;
 		if ('__componentClassInitializedListeners' in abstractCasted) {
 			for (let i = 0; i < abstractCasted.__componentClassInitializedListeners.length; i++) {
@@ -36,10 +36,10 @@ export abstract class ComponentFactory {
 	}
 
 	private static createComponentClass(componentClass: any) {
-		return new componentClass() as ComponentInternal;
+		return new componentClass() as ComponentInterface;
 	}
 
-	private static initializeComponent(individualComponent: ComponentInternal, element: HTMLElement) {
+	private static initializeComponent(individualComponent: ComponentInterface, element: HTMLElement) {
 		individualComponent.element = element;
 		if (typeof individualComponent.__options.template === 'string') {
 			const templateElement = document.getElementById(individualComponent.__options.template) as HTMLTemplateElement;
@@ -62,7 +62,7 @@ export abstract class ComponentFactory {
 		this.initializeComponent(this.createComponentClass(componentClass), element);
 	}
 
-	private static initializeChildrenElements(individualComponent: ComponentInternal, options: any) {
+	private static initializeChildrenElements(individualComponent: ComponentInterface, options: any) {
 		for (let j = 0; j < options.childrenSelectors.length; j++) {
 			const childrenElements = HtmlElementUtility.querySelectAllByAttribute(options.childrenSelectors[j], individualComponent.element);
 			if (typeof individualComponent.children === "undefined") {
@@ -72,7 +72,7 @@ export abstract class ComponentFactory {
 		}
 	}
 
-	private static callReadyListener(individualComponent: ComponentInternal): void {
+	private static callReadyListener(individualComponent: ComponentInterface): void {
 		let onReadyCasted = individualComponent as {} as OnReady;
 		if ('onReady' in individualComponent && typeof onReadyCasted.onReady === 'function') {
 			onReadyCasted.onReady();

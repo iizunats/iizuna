@@ -1,4 +1,6 @@
 /**
+ * @description
+ * The IE does not support custom Events (which we use to trigger certain things, like the "key.escape" event)
  * @see https://stackoverflow.com/a/26596324/2217462
  */
 (function () {

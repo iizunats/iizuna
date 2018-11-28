@@ -1,10 +1,10 @@
-import {ComponentInternal} from "../interfaces/component.interface";
+import {ComponentInterface} from "../interfaces/component.interface";
 import {debounce} from "../helpers/debounce";
 import {ComponentFactory} from "../helpers/component.factory";
 
 export function EventListener(type: string = null, childSelector: string = null) {
 	return function (target: any, propertyKey: string) {
-		ComponentFactory.onComponentClassInitialized(function (object: ComponentInternal) {
+		ComponentFactory.onComponentClassInitialized(function (object: ComponentInterface) {
 			if (childSelector && object.children[childSelector]) {
 				let listenerTargetElement = object.children[childSelector];
 				for (let i = 0; i < listenerTargetElement.length; i++) {
