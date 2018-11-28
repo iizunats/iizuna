@@ -3,6 +3,13 @@ import {ComponentFactory} from "../helpers/component.factory";
 import {HtmlElementUtility} from "../helpers/html-element-utility";
 import {ComponentInterface} from "../interfaces/component.interface";
 
+/**
+ * @description
+ * Makes it possibly to register properties of the component class as data-attributes.
+ * This can be used to override specific properties directly in the html without any overhead.
+ * @param {string} configRegistryIdentifier
+ * @constructor
+ */
 export function ElementAttribute(configRegistryIdentifier: string = '') {
 	return (target: any, propertyKey: string) => {
 		ComponentFactory.onComponentClassInitialized(function (object: ComponentInterface) {

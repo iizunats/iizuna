@@ -1,5 +1,15 @@
-export function smoothScroll(destination: any, duration = 500, easing = 'linear', callback = () => {
-}) {
+/**
+ * @description
+ * A simple function that scrolls the the page to the given destination with the passed easing animation
+ * @param {number|HTMLElement} destination Either the Target element or the scroll position in pixels
+ * @param {number} duration The animation duration
+ * @param {string} easing The easing function which should be used for the scrolling
+ * @param {()} callback
+ * @return {void}
+ *
+ * @see https://pawelgrzybek.com/page-scroll-in-vanilla-javascript/
+ */
+export function smoothScroll(destination: any, duration = 500, easing = 'linear', callback = () => {}) {
 
 	const easings = {
 		linear(t: number) {

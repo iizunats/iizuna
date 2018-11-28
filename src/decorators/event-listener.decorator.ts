@@ -2,6 +2,13 @@ import {ComponentInterface} from "../interfaces/component.interface";
 import {debounce} from "../helpers/debounce";
 import {ComponentFactory} from "../helpers/component.factory";
 
+/**
+ * @description
+ * Makes it possible to easily register event listeners for the component element (or event child elements)
+ * @param {string} type The event type. the name of the method is used as fallback if not set
+ * @param {string} childSelector Optionally the possibility to attach listeners to child elements
+ * @constructor
+ */
 export function EventListener(type: string = null, childSelector: string = null) {
 	return function (target: any, propertyKey: string) {
 		ComponentFactory.onComponentClassInitialized(function (object: ComponentInterface) {
@@ -29,6 +36,13 @@ export function EventListener(type: string = null, childSelector: string = null)
 	};
 }
 
+/**
+ * @description
+ * Can be used together with the EventListener Decorator.
+ * It enhances it by adding a debounce to the event.
+ * @param {number} delay the number of milliseconds that should be debounced
+ * @constructor
+ */
 export function DebounceEvent(delay: number) {
 	return function (target: any, propertyKey: string) {
 		if (typeof target.__debounced === "undefined") {

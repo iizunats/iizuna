@@ -1,3 +1,9 @@
+/**
+ * @description
+ * Slightly altered version of https://gist.github.com/alessioalex/1376157#file-gistfile1-js
+ * Maybe we dont even need this much of an overhead? Maybe just use DOMContentLoaded?
+ * @type {DomReady}
+ */
 export const DomReady = new class DomReady {
 	public readyBound: boolean = false;
 	public isReady: boolean = false;
