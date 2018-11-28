@@ -2,7 +2,7 @@
  * @see https://stackoverflow.com/a/26596324/2217462
  */
 (function () {
-	const _window = window as unknown as any;
+	const _window = window as {} as any;
 	if (typeof _window.CustomEvent === "function") return false; //If not IE
 
 	function CustomEvent(event: any, params: any) {
