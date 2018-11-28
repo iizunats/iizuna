@@ -1,10 +1,12 @@
 import {DomReady} from "../helpers/dom-ready";
+import {EventHelper} from "../helpers/event-helper";
 
 DomReady.ready(() => {
 	document.addEventListener('keyup', (event: KeyboardEvent) => {
 		switch (event.key) {
+			case 'Esc':
 			case 'Escape':
-				document.dispatchEvent(new Event('key.escape'));
+				EventHelper.triggerCustomEvent('key.escape');
 		}
 	});
 });
