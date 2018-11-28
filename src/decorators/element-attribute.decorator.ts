@@ -10,7 +10,7 @@ export function ElementAttribute(configRegistryIdentifier: string = '') {
 			if (att !== null) { // first get the value of the element attribute
 				object[propertyKey] = att;
 			} else if (configRegistryIdentifier !== '') {//if not set, try to get the global default override.
-				target[propertyKey] = ConfigRegistry.getConfig(configRegistryIdentifier, target[propertyKey]);
+				object[propertyKey] = ConfigRegistry.getConfig(configRegistryIdentifier, target[propertyKey]);
 			}
 		}, target);
 	};
