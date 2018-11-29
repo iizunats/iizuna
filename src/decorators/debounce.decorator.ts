@@ -11,8 +11,6 @@ import {debounce} from "../helpers/debounce";
  */
 export function Debounce(delay: number) {
 	return function (target: any, propertyKey: string) {
-		ComponentFactory.onComponentClassInitialized(function () {
-			target[propertyKey] = debounce(target[propertyKey], delay);
-		}, target);
+		target[propertyKey] = debounce(target[propertyKey], delay);
 	};
 }
