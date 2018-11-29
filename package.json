@@ -1,43 +1,58 @@
 {
-  "name": "typescript-components",
-  "version": "2.0.4",
-  "description": "A TypeScript Framework for non-pwa pages (like content management systems)",
-  "keywords": [
-    "typescript",
-    "non-pwa",
-    "framework",
-    "decorators"
-  ],
-  "main": "lib/main.js",
-  "types": "lib/main.d.ts",
-  "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build",
-    "test": "npm run build && mocha -r ts-node/register -r jsdom-global/register src/**/*.spec.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Nano1237/typescript-components.git"
-  },
-  "author": "Tim Rücker",
-  "contributors": [],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Nano1237/typescript-components/issues"
-  },
-  "homepage": "https://github.com/Nano1237/typescript-components",
-  "engines": {},
-  "dependencies": {
-    "es6-promise": "^4.2.5"
-  },
-  "devDependencies": {
-    "@types/chai": "^4.1.7",
-    "@types/mocha": "^5.2.5",
-    "chai": "^4.2.0",
-    "jsdom": "^13.0.0",
-    "jsdom-global": "^3.0.2",
-    "mocha": "^5.2.0",
-    "ts-node": "^7.0.1",
-    "typescript": "^3.1.6"
-  }
+	"name": "typescript-components",
+	"version": "2.0.4",
+	"description": "A TypeScript Framework for non-pwa pages (like content management systems)",
+	"keywords": [
+		"typescript",
+		"non-pwa",
+		"framework",
+		"decorators"
+	],
+	"main": "lib/main.js",
+	"types": "lib/main.d.ts",
+	"scripts": {
+		"build": "tsc",
+		"prepare": "npm run build",
+		"test": "npm run build && nyc mocha -r ts-node/register -r jsdom-global/register src/**/*.spec.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Nano1237/typescript-components.git"
+	},
+	"nyc": {
+		"cache": true,
+		"extension": [
+			".ts"
+		],
+		"exclude": [
+			"lib",
+			"coverage",
+			"**/*.d.ts"
+		],
+		"reporter": [
+			"html"
+		]
+	},
+	"author": "Tim Rücker",
+	"contributors": [],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Nano1237/typescript-components/issues"
+	},
+	"homepage": "https://github.com/Nano1237/typescript-components",
+	"engines": {},
+	"dependencies": {
+		"es6-promise": "^4.2.5"
+	},
+	"devDependencies": {
+		"@types/chai": "^4.1.7",
+		"@types/mocha": "^5.2.5",
+		"chai": "^4.2.0",
+		"jsdom": "^13.0.0",
+		"jsdom-global": "^3.0.2",
+		"mocha": "^5.2.0",
+		"nyc": "^13.1.0",
+		"ts-node": "^7.0.1",
+		"typescript": "^3.1.6"
+	}
 }
