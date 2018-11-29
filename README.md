@@ -30,8 +30,7 @@ This framework is based on simple components, which can be set to an element via
 First, the component must be declared. Here we declare a simple "scroll to top" button.
 
 ```typescript
-// your scroll-top.component.ts file
-//Import all necessary dependencies
+// scroll-top.component.ts
 import {Component} from "typescript-components/lib/decorators/component.decorator";
 import {EventListener} from "typescript-components/lib/decorators/event-listener.decorator";
 import {smoothScroll} from "typescript-components/lib/helpers/scroll";
@@ -82,12 +81,11 @@ export class ScrollTopComponent {
 Then we need to register the created component for bootstrapping.
 
 ```typescript
-//your main.ts
+// main.ts
 import "typescript-components/lib/main";
 import {ComponentFactory} from "typescript-components/lib/helpers/component.factory";
 import {ScrollTopComponent} from "./scroll-top.component";
 
-//Register the component
 ComponentFactory.registerComponents([
 	ScrollTopComponent
 ]);
@@ -96,6 +94,7 @@ ComponentFactory.registerComponents([
 Now we just have to define the html and call the page (after building the javascript of cause).
 
 ```html
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
