@@ -26,6 +26,8 @@ export function EventListener(type: string = null, childSelector: string = null)
 				let listener = function (event: Event) {
 					target[propertyKey].apply(object, [this, event]);
 				};
+
+				/* REMOVE AFTER MAJOR UPDATE */
 				if (object.__debounced && object.__debounced[name]) {
 					listener = debounce(listener, object.__debounced[name]);
 				}
@@ -42,6 +44,8 @@ export function EventListener(type: string = null, childSelector: string = null)
  * It enhances it by adding a debounce to the event.
  * @param {number} delay the number of milliseconds that should be debounced
  * @constructor
+ * @deprecated
+ * Will be removed in the next major update. Use the Debounce Decorator instead!
  */
 export function DebounceEvent(delay: number) {
 	return function (target: any, propertyKey: string) {
