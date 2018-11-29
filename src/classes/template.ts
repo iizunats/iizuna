@@ -1,6 +1,6 @@
 /**
  * @description
- * A simple template class without much funtionality.
+ * A simple template class without much functionality.
  * Currently only used to add more functionalities to the templates later
  */
 export class Template {
