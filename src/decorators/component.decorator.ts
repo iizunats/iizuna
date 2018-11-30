@@ -1,4 +1,4 @@
-import {ComponentInterface} from "../interfaces/component.interface";
+import {AbstractComponent} from "../classes/abstract.component";
 
 /**
  * @description
@@ -11,7 +11,7 @@ export function Component(options: { selector: string, childrenSelectors?: any, 
 		return class extends target {
 			constructor(...args: any[]) {
 				super();
-				(this as any as ComponentInterface).__options = options;
+				(this as any as AbstractComponent).__options = options;
 			}
 		};
 	};

@@ -1,6 +1,6 @@
 import {ComponentFactory} from "../helpers/component.factory";
 import {debounce} from "../helpers/debounce";
-import {ComponentInterface} from "../interfaces/component.interface";
+import {AbstractComponent} from "../classes/abstract.component";
 
 /**
  * @description
@@ -12,7 +12,7 @@ import {ComponentInterface} from "../interfaces/component.interface";
  */
 export function Debounce(delay: number) {
 	return function (target: any, propertyKey: string) {
-		ComponentFactory.onComponentClassInitialized(function (individualElement: ComponentInterface) {
+		ComponentFactory.onComponentClassInitialized(function (individualElement: AbstractComponent) {
 			individualElement[propertyKey] = debounce(individualElement[propertyKey], delay);
 		}, target);
 	};

@@ -13,7 +13,7 @@ export abstract class HtmlElementUtility {
 	 * @param {string} value If a element with a specific value of the attribute is needed
 	 * @return {HTMLElement|null}
 	 */
-	public static querySelectByAttribute(selector: string, element: any = document, value: string = null) {
+	public static querySelectByAttribute<E extends Element = Element>(selector: string, element: any = document, value: string = null): E | null {
 		const queryValued = value !== null ? selector + '="' + value + '"' : selector;
 		return element.querySelector('[data-' + queryValued + '],[' + queryValued + ']');
 	}
@@ -27,7 +27,7 @@ export abstract class HtmlElementUtility {
 	 * @param {string} value If a element with a specific value of the attribute is needed
 	 * @return {NodeList}
 	 */
-	public static querySelectAllByAttribute(selector: string, element: any = document, value: string = null) {
+	public static querySelectAllByAttribute<E extends Element = Element>(selector: string, element: any = document, value: string = null): NodeListOf<E> {
 		const queryValued = value !== null ? selector + '="' + value + '"' : selector;
 		return element.querySelectorAll('[data-' + queryValued + '],[' + queryValued + ']');
 	}
@@ -40,7 +40,7 @@ export abstract class HtmlElementUtility {
 	 * @param {HTMLElement} element The element of which the attribute value should be returned
 	 * @return {string}
 	 */
-	public static getSelectorValue(selector: string, element: HTMLElement) {
+	public static getSelectorValue(selector: string, element: Element): string {
 		const clearedSelector = selector.replace(/^data-/, '');
 		return element.getAttribute(clearedSelector) || element.getAttribute('data-' + clearedSelector);
 	}
@@ -52,7 +52,7 @@ export abstract class HtmlElementUtility {
 	 * @param {Element} child the child element
 	 * @return {boolean}
 	 */
-	public static isDescendant(parent: Element, child: Element) {
+	public static isDescendant(parent: Element, child: Element): boolean {
 		let node = child.parentNode;
 		while (node != null) {
 			if (node == parent) {

@@ -1,9 +1,9 @@
-import {ComponentInterface} from "../interfaces/component.interface";
 import {HtmlElementUtility} from "./html-element-utility";
 import {OnReady} from "../interfaces/on-ready.interface";
 import {ComponentRegistry} from "./component.registry";
 import {Template} from "../classes/template";
 import {DomReady} from "./dom-ready";
+import {AbstractComponent} from "../classes/abstract.component";
 
 /**
  * @description
@@ -17,12 +17,12 @@ export abstract class ComponentFactory {
 	 * Registers all Components passed as array. The Class should be passed, not the object!
 	 * @param {*[]} components
 	 */
-	public static registerComponents(components: any[]) {
+	public static registerComponents(components: any[]): void {
 		DomReady.ready(() => {
-			for (let i = 0; i < components.length; i++) {
+			for (let i = 0, l = components.length; i < l; i++) {
 				const componentClass = this.createComponentClass(components[i]);
 				const elements = HtmlElementUtility.querySelectAllByAttribute(componentClass.__options.selector);
-				for (let j = 0; j < elements.length; j++) {
+				for (let j = 0, m = elements.length; j < m; j++) {
 					this.initializeComponent(this.createComponentClass(components[i]), elements[j]);
 				}
 			}
@@ -36,8 +36,8 @@ export abstract class ComponentFactory {
 	 * @param callback
 	 * @param individualComponent
 	 */
-	public static onComponentClassInitialized(callback: any, individualComponent: any) {
-		if (typeof individualComponent.__componentClassInitializedListeners === "undefined") {
+	public static onComponentClassInitialized(callback: (componentObject?: AbstractComponent) => void, individualComponent: AbstractComponent): void {
+		if (typeof individualComponent.__componentClassInitializedListeners === 'undefined') {
 			individualComponent.__componentClassInitializedListeners = [];
 		}
 		individualComponent.__componentClassInitializedListeners.push(callback);
@@ -46,25 +46,25 @@ export abstract class ComponentFactory {
 	/**
 	 * @description
 	 * Calls the initialize listener of the passed component object (like the name says)
-	 * @param {ComponentInterface} individualComponent
+	 * @param {AbstractComponent} individualComponent
 	 */
-	private static callComponentClassInitialized(individualComponent: ComponentInterface) {
-		let abstractCasted = individualComponent as any;
-		if ('__componentClassInitializedListeners' in abstractCasted) {
-			for (let i = 0; i < abstractCasted.__componentClassInitializedListeners.length; i++) {
-				abstractCasted.__componentClassInitializedListeners[i](individualComponent);
-			}
+	private static callComponentClassInitialized(individualComponent: AbstractComponent): void {
+		if (typeof individualComponent.__componentClassInitializedListeners === 'undefined') {
+			return;
+		}
+		for (let i = 0, l = individualComponent.__componentClassInitializedListeners.length; i < l; i++) {
+			individualComponent.__componentClassInitializedListeners[i](individualComponent);
 		}
 	}
 
 	/**
 	 * @description
-	 * Returns an instance of the passed component class which is then being casted to the ComponentInterface for internal reasons.
+	 * Returns an instance of the passed component class which is then being casted to the AbstractComponent for internal reasons.
 	 * @param componentClass
-	 * @return {ComponentInterface}
+	 * @return {AbstractComponent}
 	 */
-	private static createComponentClass(componentClass: any) {
-		return new componentClass() as ComponentInterface;
+	private static createComponentClass(componentClass: any): AbstractComponent {
+		return new componentClass() as AbstractComponent;
 	}
 
 	/**
@@ -76,13 +76,12 @@ export abstract class ComponentFactory {
 	 * - ... calls all initialize listeners
 	 * - ... calls all ready listeners
 	 * - and registers the component object in the registry
-	 * @param {ComponentInterface} individualComponent
+	 * @param {AbstractComponent} individualComponent
 	 * @param {HTMLElement} element
 	 */
-	private static initializeComponent(individualComponent: ComponentInterface, element: HTMLElement) {
+	private static initializeComponent(individualComponent: AbstractComponent, element: Element): AbstractComponent {
 		individualComponent.element = element;
 		individualComponent.selector = individualComponent.__options.selector;
-		this.attachIdentifierGetter(individualComponent);
 		if (typeof individualComponent.__options.template === 'string') {
 			const templateElement = document.getElementById(individualComponent.__options.template) as HTMLTemplateElement;
 			if (typeof templateElement.innerHTML !== 'undefined') {//we no longer check the instance of, because of some polyfills that cant inherit from the HTMLTemplateElement
@@ -103,36 +102,23 @@ export abstract class ComponentFactory {
 
 	/**
 	 * @description
-	 * Attaches a getter to the individual component that returns the current selector value of the element
-	 * @param individualComponent
-	 */
-	private static attachIdentifierGetter(individualComponent: ComponentInterface) {
-		Object.defineProperty(individualComponent, 'identifier', {
-			get: function () {
-				return HtmlElementUtility.getSelectorValue(this.selector, this.element);
-			}
-		});
-	}
-
-	/**
-	 * @description
 	 * You can create component objects on the fly with this method.
 	 * Lets say you have an HTML response of any given ajax request and you want to bootstrap the components defined there.
 	 * Just call this method with a: the HTML element of the selector and b: the correct component class.
 	 * @param {HTMLElement} element
 	 * @param componentClass
 	 */
-	public static createComponentWithElement(element: HTMLElement, componentClass: any) {
+	public static createComponentWithElement(element: HTMLElement, componentClass: AbstractComponent): AbstractComponent {
 		return this.initializeComponent(this.createComponentClass(componentClass), element);
 	}
 
 	/**
 	 * @description
 	 * Searches for children registered via Component Decorator
-	 * @param {ComponentInterface} individualComponent
-	 * @param options
+	 * @param {AbstractComponent} individualComponent
+	 * @param options todo: add definition for options
 	 */
-	private static initializeChildrenElements(individualComponent: ComponentInterface, options: any) {
+	private static initializeChildrenElements(individualComponent: AbstractComponent, options: any): void {
 		for (let j = 0; j < options.childrenSelectors.length; j++) {
 			const childrenElements = HtmlElementUtility.querySelectAllByAttribute(options.childrenSelectors[j], individualComponent.element);
 			if (typeof individualComponent.children === "undefined") {
@@ -145,9 +131,9 @@ export abstract class ComponentFactory {
 	/**
 	 * @description
 	 * Calls the onReady listener if the class of the component object implemented the OnReady Interface
-	 * @param {ComponentInterface} individualComponent
+	 * @param {AbstractComponent} individualComponent
 	 */
-	private static callReadyListener(individualComponent: ComponentInterface): void {
+	private static callReadyListener(individualComponent: AbstractComponent): void {
 		let onReadyCasted = individualComponent as {} as OnReady;
 		if ('onReady' in individualComponent && typeof onReadyCasted.onReady === 'function') {
 			onReadyCasted.onReady();

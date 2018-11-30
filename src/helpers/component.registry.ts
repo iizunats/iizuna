@@ -1,5 +1,5 @@
-import {ComponentInterface} from "../interfaces/component.interface";
 import {HtmlElementUtility} from "./html-element-utility";
+import {AbstractComponent} from "../classes/abstract.component";
 
 /**
  * @description
@@ -12,15 +12,15 @@ export const ComponentRegistry = new class {
 	 * The references of all components are gonna registered here
 	 * @type {{}}
 	 */
-	public componentRegister: any = {};
+	public componentRegister: { [index: string]: AbstractComponent[] } = {};
 
 	/**
 	 * @description
 	 * Register the component in the local componentRegister object
 	 * @param {string} selector the selector, configured via Component Decorator
-	 * @param {ComponentInterface} individualComponent
+	 * @param {AbstractComponent} individualComponent
 	 */
-	public registerComponent(selector: string, individualComponent: ComponentInterface) {
+	public registerComponent(selector: string, individualComponent: AbstractComponent): void {
 		if (typeof this.componentRegister[selector] === 'undefined') {
 			this.componentRegister[selector] = [];
 		}
@@ -33,7 +33,7 @@ export const ComponentRegistry = new class {
 	 * @param {string} selector
 	 * @return {*}
 	 */
-	public getComponentsBySelector(selector: string) {
+	public getComponentsBySelector(selector: string): AbstractComponent[] {
 		return this.componentRegister[selector];
 	}
 
@@ -44,9 +44,9 @@ export const ComponentRegistry = new class {
 	 * @param {string} identifier
 	 * @return {*}
 	 */
-	public getComponentsBySelectorAndIdentifier(selector: string, identifier: string) {
+	public getComponentsBySelectorAndIdentifier(selector: string, identifier: string): AbstractComponent[] {
 		const components = this.getComponentsBySelector(selector);
-		return components.filter((element: ComponentInterface) => {
+		return components.filter((element: AbstractComponent) => {
 			return HtmlElementUtility.getSelectorValue(selector, element.element) === identifier;
 		});
 	}

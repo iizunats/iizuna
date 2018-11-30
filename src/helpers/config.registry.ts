@@ -9,7 +9,7 @@ export abstract class ConfigRegistry {
 	 * Local storage of configuration values.
 	 * @type {{}}
 	 */
-	public static configs: any = {};
+	public static configs: { [index: string]: any } = {};
 
 	/**
 	 * @description
@@ -17,7 +17,7 @@ export abstract class ConfigRegistry {
 	 * @param {string} name
 	 * @param value
 	 */
-	public static setConfig(name: string, value: any) {
+	public static setConfig(name: string, value: any): void {
 		this.configs[name] = value;
 	}
 
@@ -30,7 +30,7 @@ export abstract class ConfigRegistry {
 	 * @param defaultValue
 	 * @return {any}
 	 */
-	public static getConfig(name: string, defaultValue: any = null) {
+	public static getConfig(name: string, defaultValue: any = null): any {
 		if (typeof this.configs[name] === "undefined") {
 			return defaultValue;
 		}

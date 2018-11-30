@@ -1,5 +1,5 @@
-import {ComponentInterface} from "../interfaces/component.interface";
 import {ComponentFactory} from "../helpers/component.factory";
+import {AbstractComponent} from "../classes/abstract.component";
 
 /**
  * @description
@@ -9,7 +9,7 @@ import {ComponentFactory} from "../helpers/component.factory";
  */
 export function GlobalEventListener(type: string = null) {
 	return function (target: any, propertyKey: string) {
-		ComponentFactory.onComponentClassInitialized(function (object: ComponentInterface) {
+		ComponentFactory.onComponentClassInitialized(function (object: AbstractComponent) {
 			let listener = function (event: Event) {
 				target[propertyKey].apply(object, [this, event]);
 			};

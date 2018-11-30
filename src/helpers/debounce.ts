@@ -6,7 +6,7 @@
  * @param {boolean} immediate Only used recursively
  * @return {() => any} The debounced callback that should be used as function
  */
-export function debounce(callback: any, delay: number, immediate = false) {
+export function debounce(callback: any, delay: number, immediate = false): () => void {
 	let timeout: any;
 	return function () {
 		const context = this;
