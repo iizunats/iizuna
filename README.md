@@ -35,6 +35,7 @@ import {Component} from "typescript-components/lib/decorators/component.decorato
 import {EventListener} from "typescript-components/lib/decorators/event-listener.decorator";
 import {smoothScroll} from "typescript-components/lib/helpers/scroll";
 import {ElementAttribute} from "typescript-components/lib/decorators/element-attribute.decorator";
+import {AbstractComponent} from "typescript-components/lib/classes/abstract.component";
 
 /**
  * Decorate the declared component class with the @Component decorator (the magic happens here)
@@ -46,7 +47,7 @@ import {ElementAttribute} from "typescript-components/lib/decorators/element-att
 	 */
 	selector: 'scroll-top'
 })
-export class ScrollTopComponent {
+export class ScrollTopComponent extends AbstractComponent {
 
 	/**
 	 * Declare a class property and decorate it via the @ElementAttribute decorator which automatically retrieves the attribute value of the element on page load.
