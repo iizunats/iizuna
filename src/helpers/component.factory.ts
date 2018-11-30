@@ -81,6 +81,7 @@ export abstract class ComponentFactory {
 	 */
 	private static initializeComponent(individualComponent: ComponentInterface, element: HTMLElement) {
 		individualComponent.element = element;
+		individualComponent.selector = individualComponent.__options.selector;
 		if (typeof individualComponent.__options.template === 'string') {
 			const templateElement = document.getElementById(individualComponent.__options.template) as HTMLTemplateElement;
 			if (typeof templateElement.innerHTML !== 'undefined') {//we no longer check the instance of, because of some polyfills that cant inherit from the HTMLTemplateElement
