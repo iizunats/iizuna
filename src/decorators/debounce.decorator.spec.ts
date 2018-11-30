@@ -16,9 +16,9 @@ describe('Debounce Decorator', () => {
 			test: function () {
 				this.val = 1;
 			}
-		}as any;
+		} as any;
 		debounceDecorator(obj, 'test');
-		obj.__componentClassInitializedListeners[0]();
+		obj.__componentClassInitializedListeners[0](obj);
 		expect(obj.val).to.equal(0);
 		obj.test();
 		expect(obj.val).to.equal(0);
