@@ -96,6 +96,7 @@ export abstract class ComponentFactory {
 		if (individualComponent.__options.selector) {
 			ComponentRegistry.registerComponent(individualComponent.__options.selector, individualComponent);
 		}
+		return individualComponent;
 	}
 
 	/**
@@ -107,7 +108,7 @@ export abstract class ComponentFactory {
 	 * @param componentClass
 	 */
 	public static createComponentWithElement(element: HTMLElement, componentClass: any) {
-		this.initializeComponent(this.createComponentClass(componentClass), element);
+		return this.initializeComponent(this.createComponentClass(componentClass), element);
 	}
 
 	/**
