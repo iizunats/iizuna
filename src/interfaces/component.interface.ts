@@ -12,13 +12,17 @@ export interface ComponentInterface {
 	 * The Element that was found in the DOM on DomReady for the given selector
 	 */
 	element: HTMLElement;
-
 	/**
 	 * @description
 	 * This property will be filled automatically if the class was decorated by the Component Decorator.
 	 * It contains the passed selector string.
 	 */
 	selector?: string;
+	/**
+	 * @description
+	 * Contains the value of the component selector of the element.
+	 */
+	identifier?: string;
 	/**
 	 * @description
 	 * The HTML of the Template that is found if the Component Decorator was correctly configured.
