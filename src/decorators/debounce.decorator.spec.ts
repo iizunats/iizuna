@@ -12,12 +12,13 @@ describe('Debounce Decorator', () => {
 		let debounceDecorator = Debounce(400);
 		let obj = {
 			val: 0,
+			__componentClassInitializedListeners: [],
 			test: function () {
 				this.val = 1;
 			}
-		};
+		}as any;
 		debounceDecorator(obj, 'test');
-
+		obj.__componentClassInitializedListeners[0]();
 		expect(obj.val).to.equal(0);
 		obj.test();
 		expect(obj.val).to.equal(0);
