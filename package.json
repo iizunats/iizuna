@@ -1,6 +1,6 @@
 {
 	"name": "typescript-components",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"description": "A TypeScript Framework for non-pwa pages (like content management systems)",
 	"keywords": [
 		"typescript",
