@@ -11,7 +11,7 @@ npm install typescript-components --save
 ### Node
 
 ```typescript
-import "typescript-components/lib/main";
+import "typescript-components";
 ```
 
 ## Why not Angular, React, Vue.js etc?
@@ -31,11 +31,7 @@ First, the component must be declared. Here we declare a simple "scroll to top" 
 
 ```typescript
 // scroll-top.component.ts
-import {Component} from "typescript-components/lib/decorators/component.decorator";
-import {EventListener} from "typescript-components/lib/decorators/event-listener.decorator";
-import {smoothScroll} from "typescript-components/lib/helpers/scroll";
-import {ElementAttribute} from "typescript-components/lib/decorators/element-attribute.decorator";
-import {AbstractComponent} from "typescript-components/lib/classes/abstract.component";
+import {AbstractComponent, Component, ElementAttribute, EventListener, smoothScroll} from "typescript-components";
 
 /**
  * Decorate the declared component class with the @Component decorator (the magic happens here)
@@ -66,7 +62,7 @@ export class ScrollTopComponent extends AbstractComponent {
 	 * @EventListener('click')
 	 * public clickOne() {
 	 * }
-	 * 
+	 *
 	 * @EventListener('click')
 	 * public clickTwo() {
 	 * }
@@ -83,8 +79,7 @@ Then we need to register the created component for bootstrapping.
 
 ```typescript
 // main.ts
-import "typescript-components/lib/main";
-import {ComponentFactory} from "typescript-components/lib/helpers/component.factory";
+import {ComponentFactory} from "typescript-components";
 import {ScrollTopComponent} from "./scroll-top.component";
 
 ComponentFactory.registerComponents([
