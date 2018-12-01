@@ -1,5 +1,5 @@
 {
-	"name": "typescript-components",
+	"name": "iizuna",
 	"version": "3.0.1",
 	"description": "A TypeScript Framework for non-pwa pages (like content management systems)",
 	"keywords": [
@@ -17,7 +17,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Nano1237/typescript-components.git"
+		"url": "https://github.com/Nano1237/iizuna.git"
 	},
 	"nyc": {
 		"cache": true,
@@ -37,9 +37,9 @@
 	"contributors": [],
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/Nano1237/typescript-components/issues"
+		"url": "https://github.com/Nano1237/iizuna/issues"
 	},
-	"homepage": "https://github.com/Nano1237/typescript-components",
+	"homepage": "https://github.com/Nano1237/iizuna",
 	"engines": {},
 	"dependencies": {
 		"es6-promise": "^4.2.5"

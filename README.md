@@ -1,17 +1,17 @@
-# typescript-components
+# iizuna
 
 > A TypeScript Framework for non-pwa pages
 
 ## Installation
 
 ```
-npm install typescript-components --save
+npm install iizuna --save
 ```
 
 ### Node
 
 ```typescript
-import "typescript-components";
+import "iizuna";
 ```
 
 ## Why not Angular, React, Vue.js etc?
@@ -31,7 +31,7 @@ First, the component must be declared. Here we declare a simple "scroll to top" 
 
 ```typescript
 // scroll-top.component.ts
-import {AbstractComponent, Component, ElementAttribute, EventListener, smoothScroll} from "typescript-components";
+import {AbstractComponent, Component, ElementAttribute, EventListener, smoothScroll} from "iizuna";
 
 /**
  * Decorate the declared component class with the @Component decorator (the magic happens here)
@@ -79,7 +79,7 @@ Then we need to register the created component for bootstrapping.
 
 ```typescript
 // main.ts
-import {ComponentFactory} from "typescript-components";
+import {ComponentFactory} from "iizuna";
 import {ScrollTopComponent} from "./scroll-top.component";
 
 ComponentFactory.registerComponents([
@@ -105,6 +105,6 @@ Now we just have to define the html and call the page (after building the javasc
 </html>
 ```
 
-Take a look at [the examples](https://github.com/Nano1237/typescript-components/tree/master/examples) if you want to see more advanced component configurations.
+Take a look at [the examples](https://github.com/Nano1237/iizuna/tree/master/examples) if you want to see more advanced component configurations.
 
 A documentation will follow soon to show you all programming possibilities.
