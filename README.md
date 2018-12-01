@@ -17,7 +17,7 @@ import "typescript-components";
 ## Why not Angular, React, Vue.js etc?
 
 
-Have you ever had to develop a project that you could not develop as a singe-page project?
+Have you ever had to develop a project that you could not develop as a single-page project?
 
 
 I have encountered this problem many times already. Every time I wanted to use one of the above frameworks, but could not, because these are based on client-side rendering.
