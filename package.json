@@ -40,7 +40,6 @@
 		"vinyl-source-stream": "^2.0.0"
 	},
 	"dependencies": {
-		"es6-promise": "^4.2.5",
 		"iizuna": "^3.0.1"
 	},
 	"scripts": {
