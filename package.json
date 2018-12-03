@@ -1,20 +1,9 @@
 {
-	"name": "iizuna",
-	"version": "3.0.1",
-	"description": "A TypeScript Framework for non-pwa pages (like content management systems)",
-	"keywords": [
-		"typescript",
-		"non-pwa",
-		"framework",
-		"decorators"
-	],
+	"name": "iizuna-examples",
+	"version": "1.0.0",
+	"description": "Examples for the iizuna Framework",
 	"main": "lib/main.js",
 	"types": "lib/main.d.ts",
-	"scripts": {
-		"build": "tsc",
-		"prepare": "npm run build",
-		"test": "npm run build && nyc mocha -r ts-node/register -r jsdom-global/register src/**/*.spec.ts"
-	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Nano1237/iizuna.git"
@@ -41,18 +30,20 @@
 	},
 	"homepage": "https://github.com/Nano1237/iizuna",
 	"engines": {},
-	"dependencies": {
-		"es6-promise": "^4.2.5"
-	},
 	"devDependencies": {
-		"@types/chai": "^4.1.7",
-		"@types/mocha": "^5.2.5",
-		"chai": "^4.2.0",
-		"jsdom": "^13.0.0",
-		"jsdom-global": "^3.0.2",
-		"mocha": "^5.2.0",
-		"nyc": "^13.1.0",
-		"ts-node": "^7.0.1",
-		"typescript": "^3.1.6"
+		"browserify": "^16.2.3",
+		"gulp": "^3.9.1",
+		"gulp-cli": "^2.0.1",
+		"gulp-typescript": "^5.0.0-alpha.3",
+		"tsify": "^4.0.0",
+		"typescript": "^3.1.6",
+		"vinyl-source-stream": "^2.0.0"
+	},
+	"dependencies": {
+		"iizuna": "^3.0.1"
+	},
+	"scripts": {
+		"init": "npm install && npm run build-js",
+		"build": "gulp"
 	}
 }

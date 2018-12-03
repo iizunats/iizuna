@@ -1,59 +1,72 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>TypeScript Components</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<title>TypeScript Components - Modals</title>
+
+	<style>
+		.modal {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, 0.3);
+			width: 100%;
+			height: 100%;
+		}
+
+		.modal.open {
+			display: block;
+		}
+
+		.modal-content {
+			background-color: white;
+			width: 50%;
+			height: 200px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%);
+		}
+	</style>
 </head>
 <body>
 <div>
+	<h1>Example with simple Modals</h1>
+	<p>
+		Each component is individual.
+		When the components are properly developed, as many elements can be provided with the component as necessary.
+	</p>
+	<p>
+		All Modals can be closed by pressing ESC.
+	</p>
+	<p>
+		Source code can be found <a href="">Here</a>
+	</p>
 
-  <style>
-    .modal {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.3);
-      width: 100%;
-      height: 100%;
-    }
-
-    .modal.open {
-      display: block;
-    }
-
-    .modal-content {
-      background-color: white;
-      width: 50%;
-      height: 200px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%);
-    }
-  </style>
+	<button data-modal-trigger data-type="open" data-target="example">Modal Open trigger</button>
 
 
-  <h1>modal</h1>
-  <button data-modal-trigger data-type="open" data-target="example">Modal Open</button>
-
-
-  <div data-modal="example" class="modal">
-    <div class="modal-content">
-      <button data-modal-trigger data-type="close" data-target="example">Modal close</button>
-      <button data-modal-trigger data-target="example2">Modal open another</button>
-      <input>
-    </div>
-  </div>
-  <div data-modal="example2" class="modal">
-    <div class="modal-content">
-      ANOTHER!!
-      <button data-modal-trigger data-target="example">Modal open first</button>
-    </div>
-  </div>
+	<div data-modal="example" class="modal">
+		<div class="modal-content">
+			This modal contains three different Elements:<br><br>
+			A Button that triggers the close event:
+			<button data-modal-trigger data-type="close" data-target="example">Modal close</button><br><br>
+			A Button that opens another modal:
+			<button data-modal-trigger data-target="example2">Modal open another</button><br><br>
+			A Input that shows, that the modal does not close if an active element is inside of the closing modal:
+			<input placeholder="focus me and press ESC. Then blur me and press ESC." style="width: 80%;">
+		</div>
+	</div>
+	<div data-modal="example2" class="modal">
+		<div class="modal-content">
+			ANOTHER!!
+			<button data-modal-trigger data-target="example">Re-open the last modal</button>
+		</div>
+	</div>
 </div>
 
-<script src="build.js"></script>
+<script src="../output/build.js"></script>
 </body>
 </html>

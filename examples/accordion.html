@@ -3,47 +3,51 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
-	<title>TypeScript Components</title>
+	<title>TypeScript Components - Accordions</title>
+	<style>
+		.active {
+			font-weight: bold;
+		}
+
+		.in-active {
+			cursor: pointer;
+			text-decoration: underline;
+		}
+
+		.accordion-content {
+			transition: height .25s linear;
+			border: 1px solid #cccccc;
+			border-top: 0;
+			overflow: hidden;
+		}
+	</style>
 </head>
 <body>
 <div>
-	<h1>Accordion Example</h1>
+	<h1>Example with simple Accordion</h1>
+	<p>
+		Each component is individual.
+		When the components are properly developed, as many elements can be provided with the component as necessary.
+	</p>
 	<div>
-		<style>
-			.active {
-				font-weight: bold;
-			}
-
-			.inactive {
-				cursor: pointer;
-				text-decoration: underline;
-			}
-
-			.accordion-content {
-				transition: height .25s linear;
-				border: 1px solid #cccccc;
-				border-top: 0;
-				overflow: hidden;
-			}
-		</style>
 
 		<div data-accordion>
 			<h2>Accordion one</h2>
-			<div class="active" data-accordion-header="1">Header 1</div>
-			<div class="accordion-content" data-accordion-content="1">content 1</div>
-			<div class="active" data-accordion-header="2">Header 2</div>
-			<div class="accordion-content" data-accordion-content="2">content 2</div>
+			<div class="active" data-accordion-header="1">Header 1.1</div>
+			<div class="accordion-content" data-accordion-content="1">content 1.1</div>
+			<div class="in-active" data-accordion-header="2">Header 1.2</div>
+			<div class="accordion-content" data-accordion-content="2" style="height: 0;">content 1.2</div>
 		</div>
 		<div data-accordion>
 			<h2>Accordion two</h2>
-			<div class="active" data-accordion-header="1">Header 3</div>
-			<div class="accordion-content" data-accordion-content="1">content 3</div>
-			<div class="active" data-accordion-header="2">Header 4</div>
-			<div class="accordion-content" data-accordion-content="2">content 4</div>
+			<div class="active" data-accordion-header="1">Header 2.1</div>
+			<div class="accordion-content" data-accordion-content="1">content 2.1</div>
+			<div class="active" data-accordion-header="2">Header 2.2</div>
+			<div class="accordion-content" data-accordion-content="2">content 2.2</div>
 		</div>
 	</div>
 
 </div>
-<script src="build.js"></script>
+<script src="../output/build.js"></script>
 </body>
 </html>
