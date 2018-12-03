@@ -43,7 +43,7 @@
 		"iizuna": "^3.0.1"
 	},
 	"scripts": {
-		"init": "npm install && npm run build-js",
+		"init": "npm install && npm run build",
 		"build": "gulp"
 	}
 }
