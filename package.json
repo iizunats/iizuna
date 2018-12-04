@@ -13,7 +13,8 @@
 	"scripts": {
 		"build": "tsc",
 		"prepare": "npm run build",
-		"test": "npm run build && nyc mocha -r ts-node/register -r jsdom-global/register src/**/*.spec.ts"
+		"test": "npm run build && nyc mocha -r ts-node/register -r jsdom-global/register src/**/*.spec.ts",
+		"documentation": "npm run build && typedoc --out ./doc/ ./src/ --readme none --name iizuna --module commonjs --target es5 --hideGenerator --exclude **/*.spec.ts"
 	},
 	"repository": {
 		"type": "git",
@@ -53,6 +54,8 @@
 		"mocha": "^5.2.0",
 		"nyc": "^13.1.0",
 		"ts-node": "^7.0.1",
+		"typedoc": "^0.13.0",
+		"typedoc-plugin-internal-external": "^1.0.10",
 		"typescript": "^3.1.6"
 	}
 }
