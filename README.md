@@ -28,6 +28,22 @@ Selectors (currently only data-attributes) define which elements are decorated w
 
 Additional attributes allow additional configuration of the components, making them easily reusable.
 
+
+## Wordings
+
+First of all a few explanations of some of the words used in this framework.
+
+### Component
+The **class** containing the business logic. Not to be confused with the **Individual-Component**.
+
+### Individual-Component
+The **objects** instantiated based by the **Component** they are descendants of.
+For each matching element on the page, which matches the component selector, a **Individual-Component** is created.
+
+### Global Events
+**CustomEvents** which are dispatched directly to the **document**.
+
+
 ## Usage
 
 First, a component must be declared. Here we declare a simple "scroll to top" button.
