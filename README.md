@@ -126,4 +126,4 @@ Now we just have to define the html and call the page (after building the javasc
 
 Take a look at [the examples](https://github.com/Nano1237/iizuna/tree/examples) if you want to see more advanced component configurations.
 
-A documentation will follow soon to show you all programming possibilities.
+If you want to look at the documentation, you can check out this project locally and navigate to the `./doc/` directory.
