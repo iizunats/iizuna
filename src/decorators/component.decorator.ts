@@ -4,7 +4,7 @@ import {AbstractComponent} from "../classes/abstract.component";
  * @description
  * Is used to pass configuration values to the component class.
  * @param {object} options
- * @constructor
+ * @internal
  */
 export function Component(options: { selector: string, childrenSelectors?: any, template?: string }) {
 	return function <T extends { new(...args: any[]): {} }>(target: T) {
