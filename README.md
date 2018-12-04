@@ -1,6 +1,6 @@
 # iizuna
 
-> A TypeScript Framework for non-pwa pages
+> A TypeScript Framework for non-spa pages
 
 ## Installation
 
