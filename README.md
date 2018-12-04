@@ -31,7 +31,7 @@ Additional attributes allow additional configuration of the components, making t
 
 ## Wordings
 
-First of all a few explanations of some of the words used in this framework.
+First of all a few explanations to some of the words used in this framework.
 
 ### Component
 The **class** containing the business logic. Not to be confused with the **Individual-Component**.
