@@ -1,6 +1,13 @@
 # iizuna
 
-> A TypeScript Framework for non-spa pages
+> We’re not designing pages, we’re designing systems of components. — [Stephen Hay](http://bradfrost.com/blog/post/bdconf-stephen-hay-presents-responsive-design-workflow/)
+
+*Iizuna is available for use under the MIT software license.*
+
+*You can report bugs and discuss features on the GitHub issues page.*
+
+*To dive into the development, you can take a look at [the sample page](https://github.com/Nano1237/iizuna/tree/examples).*
+*There you will find some simple example components and a ready to use build process.*
 
 ## Installation
 
@@ -8,26 +15,22 @@
 npm install iizuna --save
 ```
 
-### Node
 
-```typescript
-import "iizuna";
-```
+## What ist iizuna?
 
-## Why not Angular, React, Vue.js etc?
+Iizuna came from the idea of ​​designing a truly developer-friendly framework.
+Many of today's TypeScript frameworks, such as Angular or React, are not designed to be used on pages that rely on old-fashioned server-side rendering.
 
+This framework is really easy to use because it basically consists of only one building block, the component.
 
-Have you ever had to develop a project that you could not develop as a single-page project?
+These components reflect rough HTML elements.
+Selectors (currently only data-attributes) define which elements are decorated with the business-logic you develop.
 
-
-I have encountered this problem many times already. Every time I wanted to use one of the above frameworks, but could not, because these are based on client-side rendering.
-
-This framework is based on simple components, which can be set to an element via data attribute and thus extend this to various functionalities.
-
+Additional attributes allow additional configuration of the components, making them easily reusable.
 
 ## Usage
 
-First, the component must be declared. Here we declare a simple "scroll to top" button.
+First, a component must be declared. Here we declare a simple "scroll to top" button.
 
 ```typescript
 // scroll-top.component.ts
