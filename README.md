@@ -1,5 +1,7 @@
 # iizuna
 
+pronunciation: <span style="color:gray;">[Īdzuna]</span>
+
 > We’re not designing pages, **we’re designing systems of components.** — [Stephen Hay](http://bradfrost.com/blog/post/bdconf-stephen-hay-presents-responsive-design-workflow/)
 
 *Iizuna is available for use under the MIT software license.*
