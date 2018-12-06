@@ -11,6 +11,8 @@ pronunciation: <span style="color:gray;">[Īdzuna]</span>
 *To dive into the development, you can take a look at [the sample page](https://github.com/Nano1237/iizuna/tree/examples).*
 *There you will find some simple example components and a ready to use build process.*
 
+[**Our wiki can be found here.**](https://github.com/Nano1237/iizuna/wiki)
+
 ## Installation
 
 ```
