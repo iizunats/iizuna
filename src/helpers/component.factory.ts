@@ -16,12 +16,13 @@ export abstract class ComponentFactory {
 	 * @description
 	 * Registers all Components passed as array. The Class should be passed, not the object!
 	 * @param {*[]} components
+	 * @param element
 	 */
-	public static registerComponents(components: any[]): void {
+	public static registerComponents(components: any[], element: any = document): void {
 		DomReady.ready(() => {
 			for (let i = 0, l = components.length; i < l; i++) {
 				const componentClass = this.createComponentClass(components[i]);
-				const elements = HtmlElementUtility.querySelectAllByAttribute(componentClass.__options.selector);
+				const elements = HtmlElementUtility.querySelectAllByAttribute(componentClass.__options.selector, element);
 				for (let j = 0, m = elements.length; j < m; j++) {
 					this.initializeComponent(this.createComponentClass(components[i]), elements[j]);
 				}
