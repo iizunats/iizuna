@@ -12,8 +12,6 @@ export abstract class AbstractComponent {
 	 * @description
 	 * Contains the value of the component selector of the element.
 	 */
-	private _identifier: string;
-
 	get identifier(): string {
 		return HtmlElementUtility.getSelectorValue(this.selector, this.element);
 	}

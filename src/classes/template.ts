@@ -17,7 +17,7 @@ export class Template {
 	 * @param vars an object containing key value pairs of the variable names and values
 	 * @return {string}
 	 */
-	public render(vars: any) {
+	public render(vars: any): string {
 		let html = this.html;
 		for (let name in vars) {
 			if (vars.hasOwnProperty(name)) {
