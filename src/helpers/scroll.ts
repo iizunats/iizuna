@@ -6,6 +6,7 @@
  * @param {string} easing The easing function which should be used for the scrolling
  * @param {()} callback
  * @return {void}
+ * @deprecated is potentially being removed in the next major update!
  *
  * @see https://pawelgrzybek.com/page-scroll-in-vanilla-javascript/
  */

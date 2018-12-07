@@ -5,6 +5,7 @@ import {Promise} from "es6-promise";
  * A simple ajax helper for:
  * - a: less javascript for XMLHttpRequests
  * - b: promise support.
+ * @deprecated Will be removed in the next major update!
  */
 export abstract class AjaxHelper {
 
