@@ -13,8 +13,8 @@
 	"scripts": {
 		"build": "tsc",
 		"prepare": "npm run build",
-		"test": "npm run build && nyc mocha -r ts-node/register -r jsdom-global/register src/**/*.spec.ts",
-		"documentation": "npm run build && typedoc --out ./doc/ ./src/ --readme none --name iizuna --module commonjs --target es5 --hideGenerator --exclude **/*.spec.ts"
+		"test": "nyc mocha -r ts-node/register -r jsdom-global/register src/**/*.spec.ts",
+		"documentation": "typedoc --out ./doc/ ./src/ --readme none --name iizuna --module commonjs --target es5 --hideGenerator --exclude **/*.spec.ts"
 	},
 	"repository": {
 		"type": "git",
