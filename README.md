@@ -1,4 +1,4 @@
-# iizuna
+# iizuna [![Build Status](https://travis-ci.com/Nano1237/iizuna.svg?branch=master)](https://travis-ci.com/Nano1237/iizuna)
 
 pronunciation: <span style="color:gray;">[Īdzuna]</span>
 
