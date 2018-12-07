@@ -1,4 +1,8 @@
-# iizuna [![Build Status](https://travis-ci.com/Nano1237/iizuna.svg?branch=master)](https://travis-ci.com/Nano1237/iizuna)
+# iizuna 
+[![Build Status](https://travis-ci.com/Nano1237/iizuna.svg?branch=master)](https://travis-ci.com/Nano1237/iizuna)
+[![NPM version](https://img.shields.io/npm/v/iizuna.svg)](https://www.npmjs.org/package/iizuna)
+[![Donate](https://img.shields.io/badge/donorbox-donate-blue.svg)](https://donorbox.org/iizuna)
+
 
 pronunciation: <span style="color:gray;">[Īdzuna]</span>
 
