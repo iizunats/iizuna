@@ -17,7 +17,7 @@ pronunciation: <span style="color:gray;">[Īdzuna]</span>
 *To dive into the development, you can take a look at [the sample page](https://github.com/Nano1237/iizuna/tree/examples).*
 *There you will find some simple example components and a ready to use build process.*
 
-[**Our wiki can be found here.**](https://github.com/Nano1237/iizuna/wiki)
+[**Our wiki with the documentation can be found here.**](https://github.com/Nano1237/iizuna/wiki)
 
 ## Installation
 
@@ -135,5 +135,3 @@ Now we just have to define the html and call the page (after building the javasc
 ```
 
 Take a look at [the examples](https://github.com/Nano1237/iizuna/tree/examples) if you want to see more advanced component configurations.
-
-If you want to look at the documentation, you can check out this project locally and navigate to the `./doc/` directory.
