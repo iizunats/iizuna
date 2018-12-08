@@ -1,0 +1,12 @@
+/.idea
+/.github
+/.nyc_output
+/coverage
+/doc
+/src
+.travis.yml
+_config.yml
+CNAME
+CODE_OF_CONDUCT.md
+google4d23b561f3922848.html
+PULL_REQUEST_TEMPLATE.md
