@@ -14,7 +14,7 @@ pronunciation: <span style="color:gray;">[Īdzuna]</span>
 
 *You can report bugs and discuss features on the GitHub issues page.*
 
-*To dive into the development, you can take a look at [the sample page](https://github.com/Nano1237/iizuna/tree/examples).*
+*To dive into the development you can take a look at [the sample page](https://github.com/Nano1237/iizuna/tree/examples).*
 *There you will find some simple example components and a ready to use build process.*
 
 [**Our wiki can be found here.**](https://github.com/Nano1237/iizuna/wiki)
