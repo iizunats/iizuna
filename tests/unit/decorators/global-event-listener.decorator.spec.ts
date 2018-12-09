@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {GlobalEventListener} from "./global-event-listener.decorator";
+import {GlobalEventListener} from "../../../src/decorators/global-event-listener.decorator";
 
 
 describe('GlobalEventListener Decorator', () => {

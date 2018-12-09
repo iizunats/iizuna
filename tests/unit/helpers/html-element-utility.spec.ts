@@ -1,4 +1,4 @@
-import {HtmlElementUtility} from "./html-element-utility";
+import {HtmlElementUtility} from "../../../src/helpers/html-element-utility";
 import {expect} from 'chai';
 import 'mocha';
 

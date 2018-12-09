@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {Component} from "./component.decorator";
+import {Component} from "../../../src/decorators/component.decorator";
 
 
 describe('Component Decorator', () => {

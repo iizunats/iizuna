@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {ElementAttribute} from "./element-attribute.decorator";
+import {ElementAttribute} from "../../../src/decorators/element-attribute.decorator";
 
 
 describe('ElementAttribute Decorator', () => {

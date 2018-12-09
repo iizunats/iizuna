@@ -1,7 +1,7 @@
-import {Template} from "./template";
+import {Template} from "../../../src/classes/template";
 import {expect} from 'chai';
 import 'mocha';
-import {ConfigRegistry} from "../helpers/config.registry";
+import {ConfigRegistry} from "../../../src/helpers/config.registry";
 
 
 describe('Template Class', () => {

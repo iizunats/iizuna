@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {ComponentFactory} from "./component.factory";
+import {ComponentFactory} from "../../../src/helpers/component.factory";
 
 
 describe('ComponentFactory Class', () => {

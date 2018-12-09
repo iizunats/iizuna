@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {debounce} from "./debounce";
+import {debounce} from "../../../src/helpers/debounce";
 
 
 describe('debounce Function', () => {

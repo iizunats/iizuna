@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {ComponentRegistry} from "./component.registry";
+import {ComponentRegistry} from "../../../src/helpers/component.registry";
 
 
 describe('ComponentRegistry Class', () => {

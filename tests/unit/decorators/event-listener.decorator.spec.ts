@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {EventListener} from "./event-listener.decorator";
+import {EventListener} from "../../../src/decorators/event-listener.decorator";
 
 
 describe('EventListener Decorator', () => {

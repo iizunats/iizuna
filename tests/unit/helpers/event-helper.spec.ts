@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {EventHelper} from "./event-helper";
+import {EventHelper} from "../../../src/helpers/event-helper";
 
 
 describe('EventHelper Class', () => {

@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {OnReady} from "./on-ready.interface";
+import {OnReady} from "../../../src/interfaces/on-ready.interface";
 
 
 describe('OnReady Interface', () => {
