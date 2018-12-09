@@ -20,7 +20,7 @@ describe('Template Class', () => {
 	it('should be possible to override the expression syntax', () => {
 		const template = new Template('<span>${one}</span><span>${one}</span>');
 		expect(template.render({one: 1})).to.equal('<span>1</span><span>1</span>');
-		ConfigRegistry.setConfig('template.expressionWrapper',['###','###']);
+		ConfigRegistry.setConfig('template.expressionWrapper', ['###', '###']);
 		const template2 = new Template('<span>###one###</span><span>###one###</span>');
 		expect(template2.render({one: 1})).to.equal('<span>1</span><span>1</span>');
 	});

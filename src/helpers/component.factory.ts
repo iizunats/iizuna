@@ -81,14 +81,15 @@ export abstract class ComponentFactory {
 	 * @param {HTMLElement} element
 	 */
 	private static initializeComponent(individualComponent: AbstractComponent, element: Element): AbstractComponent {
+		let templateElement;
 		individualComponent.element = element;
 		individualComponent.selector = individualComponent.__options.selector;
 		if (typeof individualComponent.__options.template === 'string') {
-			const templateElement = document.getElementById(individualComponent.__options.template) as HTMLTemplateElement;
-			if (typeof templateElement.innerHTML !== 'undefined') {//we no longer check the instance of, because of some polyfills that cant inherit from the HTMLTemplateElement
-				individualComponent.template = new Template(templateElement.innerHTML);
-			}
+			templateElement = document.getElementById(individualComponent.__options.template) as HTMLTemplateElement;
+		} else {
+			templateElement = element.getElementsByTagName('template')[0] as HTMLTemplateElement;
 		}
+		this.initializeTemplate(individualComponent, templateElement);
 
 		if (individualComponent.__options.childrenSelectors && individualComponent.__options.childrenSelectors.length) {
 			this.initializeChildrenElements(individualComponent, individualComponent.__options);
@@ -99,6 +100,19 @@ export abstract class ComponentFactory {
 			ComponentRegistry.registerComponent(individualComponent.__options.selector, individualComponent);
 		}
 		return individualComponent;
+	}
+
+	/**
+	 * @description
+	 * Checks whether the passed templateElement contains html or not.
+	 * If it does, then create a Template Object containing this html
+	 * @param individualComponent
+	 * @param {HTMLTemplateElement} templateElement
+	 */
+	private static initializeTemplate(individualComponent: any, templateElement: HTMLTemplateElement) {
+		if (typeof templateElement.innerHTML !== 'undefined') {//we no longer check the instance of, because of some polyfills that cant inherit from the HTMLTemplateElement
+			individualComponent.template = new Template(templateElement.innerHTML);
+		}
 	}
 
 	/**
