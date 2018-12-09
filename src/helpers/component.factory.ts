@@ -85,7 +85,6 @@ export abstract class ComponentFactory {
 		individualComponent.element = element;
 		individualComponent.selector = individualComponent.__options.selector;
 		if (individualComponent.__options.templateUrl) {
-			console.log('BLAAAAA');
 			const client = new httpm.HttpClient('iizuna-template-request');
 			client.get(individualComponent.__options.templateUrl).then((res: httpm.HttpClientResponse) => {
 				res.readBody().then((body: string) => {
