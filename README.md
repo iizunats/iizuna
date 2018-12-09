@@ -14,10 +14,10 @@ pronunciation: `/Īdzuna/`
 
 *You can report bugs and discuss features on the GitHub issues page.*
 
-*To dive into the development you can take a look at [the sample page](https://github.com/Nano1237/iizuna/tree/examples).*
+*To dive into the development you can take a look at [the sample page](https://github.com/iizunats/iizuna/tree/examples).*
 *There you will find some simple example components and a ready to use build process.*
 
-[**Our wiki with the documentation can be found here.**](https://github.com/Nano1237/iizuna/wiki)
+[**Our wiki with the documentation can be found here.**](https://github.com/iizunats/iizuna/wiki)
 
 ## Installation
 
@@ -134,4 +134,4 @@ Now we just have to define the html and call the page (after building the javasc
 </html>
 ```
 
-Take a look at [the examples](https://github.com/Nano1237/iizuna/tree/examples) if you want to see more advanced component configurations.
+Take a look at [the examples](https://github.com/iizunats/iizuna/tree/examples) if you want to see more advanced component configurations.
