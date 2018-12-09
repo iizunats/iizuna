@@ -4,6 +4,7 @@ import {ComponentRegistry} from "./component.registry";
 import {Template} from "../classes/template";
 import {DomReady} from "./dom-ready";
 import {AbstractComponent} from "../classes/abstract.component";
+import * as httpm from 'typed-rest-client/HttpClient';
 
 /**
  * @description
@@ -24,7 +25,7 @@ export abstract class ComponentFactory {
 				const componentClass = this.createComponentClass(components[i]);
 				const elements = HtmlElementUtility.querySelectAllByAttribute(componentClass.__options.selector, element);
 				for (let j = 0, m = elements.length; j < m; j++) {
-					this.initializeComponent(this.createComponentClass(components[i]), elements[j]);
+					this.initializeComponentStepA(this.createComponentClass(components[i]), elements[j]);
 				}
 			}
 		});
@@ -80,14 +81,31 @@ export abstract class ComponentFactory {
 	 * @param {AbstractComponent} individualComponent
 	 * @param {HTMLElement} element
 	 */
-	private static initializeComponent(individualComponent: AbstractComponent, element: Element): AbstractComponent {
-		let templateElement;
+	private static initializeComponentStepA(individualComponent: AbstractComponent, element: Element): AbstractComponent {
 		individualComponent.element = element;
 		individualComponent.selector = individualComponent.__options.selector;
+		if (individualComponent.__options.templateUrl) {
+			console.log('BLAAAAA');
+			const client = new httpm.HttpClient('iizuna-template-request');
+			client.get(individualComponent.__options.templateUrl).then((res: httpm.HttpClientResponse) => {
+				res.readBody().then((body: string) => {
+					individualComponent.template = new Template(body);
+					this.initializeComponentStepB(individualComponent);
+				});
+			});
+		} else {
+			this.initializeComponentStepB(individualComponent);
+		}
+
+		return individualComponent;
+	}
+
+	private static initializeComponentStepB(individualComponent: AbstractComponent) {
+		let templateElement;
 		if (typeof individualComponent.__options.template === 'string') {
 			templateElement = document.getElementById(individualComponent.__options.template) as HTMLTemplateElement;
-		} else {
-			templateElement = element.getElementsByTagName('template')[0] as HTMLTemplateElement;
+		} else if (!individualComponent.__options.templateUrl) {
+			templateElement = individualComponent.element.getElementsByTagName('template')[0] as HTMLTemplateElement;
 		}
 		this.initializeTemplate(individualComponent, templateElement);
 
@@ -99,7 +117,6 @@ export abstract class ComponentFactory {
 		if (individualComponent.__options.selector) {
 			ComponentRegistry.registerComponent(individualComponent.__options.selector, individualComponent);
 		}
-		return individualComponent;
 	}
 
 	/**
@@ -110,7 +127,7 @@ export abstract class ComponentFactory {
 	 * @param {HTMLTemplateElement} templateElement
 	 */
 	private static initializeTemplate(individualComponent: any, templateElement: HTMLTemplateElement) {
-		if (typeof templateElement.innerHTML !== 'undefined') {//we no longer check the instance of, because of some polyfills that cant inherit from the HTMLTemplateElement
+		if (templateElement && typeof templateElement.innerHTML !== 'undefined') {//we no longer check the instance of, because of some polyfills that cant inherit from the HTMLTemplateElement
 			individualComponent.template = new Template(templateElement.innerHTML);
 		}
 	}
@@ -124,7 +141,7 @@ export abstract class ComponentFactory {
 	 * @param componentClass
 	 */
 	public static createComponentWithElement(element: HTMLElement, componentClass: AbstractComponent): AbstractComponent {
-		return this.initializeComponent(this.createComponentClass(componentClass), element);
+		return this.initializeComponentStepA(this.createComponentClass(componentClass), element);
 	}
 
 	/**

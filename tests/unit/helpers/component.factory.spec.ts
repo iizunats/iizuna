@@ -2,6 +2,7 @@ import {expect} from 'chai';
 import 'mocha';
 import {ComponentFactory} from "../../../src/helpers/component.factory";
 import {AbstractComponent} from "../../../src/classes/abstract.component";
+//import * as httpm from 'typed-rest-client/HttpClient';
 
 
 describe('ComponentFactory Class', () => {
@@ -37,4 +38,32 @@ describe('ComponentFactory Class', () => {
 
 		expect(component.template.html).to.equal('<span>test!!!</span>');
 	});
+
+	/*
+	describe('Ajax', () => {
+		let _http: httpm.HttpClient;
+		let _httpbin: httpm.HttpClient;
+
+		before(() => {
+			_http = new httpm.HttpClient('iizuna-template-request');
+		});
+
+		after(() => {
+		});
+
+		it('should be able to request a remote template file and wait until it is fetched', () => {
+			const testElement = document.createElement('div');
+			document.body.appendChild(testElement);
+			const component = ComponentFactory.createComponentWithElement(testElement, class extends AbstractComponent {
+				__options = {
+					templateUrl: 'TEST URL'
+				};
+
+				onReady() {
+					expect(this.template.html).to.equal('asdffsdsdf');
+				}
+			} as any);
+		});
+	});
+	 */
 });
