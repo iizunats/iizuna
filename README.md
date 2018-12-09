@@ -6,7 +6,7 @@
 [![Donate](https://img.shields.io/badge/donorbox-donate-blue.svg)](https://donorbox.org/iizuna)
 
 
-pronunciation: <span style="color:gray;">[Īdzuna]</span>
+pronunciation: `/Īdzuna/`
 
 > We’re not designing pages, **we’re designing systems of components.** — [Stephen Hay](http://bradfrost.com/blog/post/bdconf-stephen-hay-presents-responsive-design-workflow/)
 
