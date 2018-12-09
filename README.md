@@ -1,5 +1,5 @@
 # iizuna 
-[![Build Status](https://travis-ci.com/Nano1237/iizuna.svg?branch=master)](https://travis-ci.com/Nano1237/iizuna)
+[![Build Status](https://travis-ci.com/iizunats/iizuna.svg?branch=master)](https://travis-ci.com/iizunats/iizuna)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Nano1237/iizuna.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Nano1237/iizuna/context:javascript)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/Nano1237/iizuna.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Nano1237/iizuna/alerts/)
 [![NPM version](https://img.shields.io/npm/v/iizuna.svg)](https://www.npmjs.org/package/iizuna)
