@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {DomReady} from "./dom-ready";
+import {DomReady} from "../../../src/helpers/dom-ready";
 
 
 describe('DomReady Object', () => {

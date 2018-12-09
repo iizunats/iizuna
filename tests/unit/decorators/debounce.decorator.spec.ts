@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {Debounce} from "./debounce.decorator";
+import {Debounce} from "../../../src/decorators/debounce.decorator";
 
 
 describe('Debounce Decorator', () => {

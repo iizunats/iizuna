@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import "./key.events";
+import "../../../src/events/key.events";
 
 
 describe('Keyboard Events', () => {

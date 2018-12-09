@@ -13,7 +13,7 @@
 	"scripts": {
 		"build": "tsc",
 		"prepare": "npm run build",
-		"test": "nyc mocha -r ts-node/register -r jsdom-global/register src/**/*.spec.ts"
+		"test": "nyc mocha -r ts-node/register -r jsdom-global/register tests/unit/**/*.spec.ts"
 	},
 	"repository": {
 		"type": "git",

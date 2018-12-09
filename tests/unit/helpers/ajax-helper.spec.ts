@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {AjaxHelper} from "./ajax-helper";
+import {AjaxHelper} from "../../../src/helpers/ajax-helper";
 
 
 describe('AjaxHelper Class', () => {

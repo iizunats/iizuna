@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {ConfigRegistry} from "./config.registry";
+import {ConfigRegistry} from "../../../src/helpers/config.registry";
 
 
 describe('ConfigRegistry Class', () => {

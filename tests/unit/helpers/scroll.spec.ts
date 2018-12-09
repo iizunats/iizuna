@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'mocha';
-import {smoothScroll} from "./scroll";
+import {smoothScroll} from "../../../src/helpers/scroll";
 
 
 describe('smoothScroll function', () => {
