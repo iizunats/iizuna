@@ -10,11 +10,28 @@ import {AbstractComponent} from "../classes/abstract.component";
 export function GlobalEventListener(type: string = null) {
 	return function (target: any, propertyKey: string) {
 		ComponentFactory.onComponentClassInitialized(function (object: AbstractComponent) {
-			let listener = function (event: Event) {
-				target[propertyKey].apply(object, [this, event]);
-			};
+			if (typeof type === 'string') {
+				const events = type.split(' ');
+				for (let i = 0; i < events.length; i++) {
+					applyEvent(document, events[i]);
+				}
+			} else {
+				applyEvent(document);
+			}
 
-			document.addEventListener(type === null ? propertyKey : type, listener);
+			/**
+			 * @description
+			 * Creates a new function that contains the property call with applied scope of the event function
+			 * @param {Element} document
+			 * @param {string} type
+			 */
+			function applyEvent(document: Document, type: string | null = null) {
+				let listener = function (event: Event) {
+					target[propertyKey].apply(object, [this, event]);
+				};
+
+				document.addEventListener(type === null ? propertyKey : type, listener);
+			}
 		}, target);
 	};
 }
