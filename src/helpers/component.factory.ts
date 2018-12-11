@@ -84,6 +84,10 @@ export abstract class ComponentFactory {
 	private static initializeComponentStepA(individualComponent: AbstractComponent, element: Element): AbstractComponent {
 		individualComponent.element = element;
 		individualComponent.selector = individualComponent.__options.selector;
+		let tmplAttr = HtmlElementUtility.getSelectorValue('template-source', element);
+		if (typeof tmplAttr === 'string' && tmplAttr !== '') {
+			individualComponent.__options.templateUrl = tmplAttr;
+		}
 		if (individualComponent.__options.templateUrl) {
 			const client = new httpm.HttpClient('iizuna-template-request');
 			client.get(individualComponent.__options.templateUrl).then((res: httpm.HttpClientResponse) => {
