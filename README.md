@@ -1,6 +1,6 @@
 # iizuna [![Build Status](https://travis-ci.com/iizunats/iizuna.svg?branch=master)](https://travis-ci.com/iizunats/iizuna) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Nano1237/iizuna.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Nano1237/iizuna/context:javascript) [![Total alerts](https://img.shields.io/lgtm/alerts/g/Nano1237/iizuna.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Nano1237/iizuna/alerts/) [![NPM version](https://img.shields.io/npm/v/iizuna.svg)](https://www.npmjs.org/package/iizuna) [![Donate](https://img.shields.io/badge/donorbox-donate-blue.svg)](https://donorbox.org/iizuna) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Create%20fast%20and%20reliable%20component%20based%20applications%20for%20server-side-rendered%20projects!&url=http://iizunats.com&via=IizunaTeam&hashtags=typescript,components,frontend,framework,developers)
 
-<img src="https://raw.githubusercontent.com/iizunats/iizuna/master/.github/assets/logo-300dpi.pmg" width="200">
+<img src="https://raw.githubusercontent.com/iizunats/iizuna/master/.github/assets/logo-300dpi.png" width="200">
  
 pronunciation: `/Īdzuna/`
 
