@@ -9,7 +9,7 @@ export class Template {
 	protected expressionWrapper: string[];
 
 	constructor(protected _html: string) {
-		this.expressionWrapper = ConfigRegistry.getConfig('template.expressionWrapper', ['(\$\{|%24%7B)', '(\}|%7D)']);
+		this.expressionWrapper = ConfigRegistry.getConfig('template.expressionWrapper', ['(\\$\\{|%24%7B)', '(\\}|%7D)']);
 	}
 
 	get html(): string {
