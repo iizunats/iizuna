@@ -4,7 +4,7 @@ import {ComponentRegistry} from "./component.registry";
 import {Template} from "../classes/template";
 import {DomReady} from "./dom-ready";
 import {AbstractComponent} from "../classes/abstract.component";
-import * as httpm from 'typed-rest-client/HttpClient';
+import {Promise} from "es6-promise";
 
 /**
  * @description
@@ -84,19 +84,40 @@ export abstract class ComponentFactory {
 	private static initializeComponentStepA(individualComponent: AbstractComponent, element: Element): AbstractComponent {
 		individualComponent.element = element;
 		individualComponent.selector = individualComponent.__options.selector;
+		let tmplAttr = HtmlElementUtility.getSelectorValue('template-source', element);
+		if (typeof tmplAttr === 'string' && tmplAttr !== '') {
+			individualComponent.__options.templateUrl = tmplAttr;
+		}
 		if (individualComponent.__options.templateUrl) {
-			const client = new httpm.HttpClient('iizuna-template-request');
-			client.get(individualComponent.__options.templateUrl).then((res: httpm.HttpClientResponse) => {
-				res.readBody().then((body: string) => {
-					individualComponent.template = new Template(body);
-					this.initializeComponentStepB(individualComponent);
-				});
+			this.getRequest(individualComponent.__options.templateUrl).then((res: XMLHttpRequest) => {
+				individualComponent.template = new Template(res.responseText);
+				this.initializeComponentStepB(individualComponent);
 			});
 		} else {
 			this.initializeComponentStepB(individualComponent);
 		}
 
 		return individualComponent;
+	}
+
+	/**
+	 * @description
+	 * Making getRequest
+	 * @param url
+	 */
+	private static getRequest(url: string): Promise<XMLHttpRequest> {
+		return new Promise((succ, err) => {
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', url);
+			xhr.onload = function () {
+				if (xhr.status === 200) {
+					succ(xhr);
+				} else {
+					err(xhr.status);
+				}
+			};
+			xhr.send();
+		});
 	}
 
 	private static initializeComponentStepB(individualComponent: AbstractComponent) {
