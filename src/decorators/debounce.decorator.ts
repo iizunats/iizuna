@@ -13,7 +13,7 @@ import {AbstractComponent} from "../classes/abstract.component";
 export function Debounce(delay: number) {
 	return function (target: any, propertyKey: string) {
 		ComponentFactory.onComponentClassInitialized(function (individualElement: AbstractComponent) {
-			individualElement[propertyKey] = debounce(individualElement[propertyKey], delay);
+			target[propertyKey] = debounce(target[propertyKey], delay);
 		}, target);
 	};
 }
