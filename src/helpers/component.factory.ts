@@ -5,6 +5,7 @@ import {Template} from "../classes/template";
 import {DomReady} from "./dom-ready";
 import {AbstractComponent} from "../classes/abstract.component";
 import {Promise} from "es6-promise";
+import {OnResize} from "../interfaces/on-resize.interface";
 
 /**
  * @description
@@ -134,6 +135,7 @@ export abstract class ComponentFactory {
 		}
 		this.callComponentClassInitialized(individualComponent);
 		this.callReadyListener(individualComponent);
+		this.attachResizeListeners(individualComponent);
 		if (individualComponent.__options.selector) {
 			ComponentRegistry.registerComponent(individualComponent.__options.selector, individualComponent);
 		}
@@ -189,6 +191,16 @@ export abstract class ComponentFactory {
 		let onReadyCasted = individualComponent as {} as OnReady;
 		if ('onReady' in individualComponent && typeof onReadyCasted.onReady === 'function') {
 			onReadyCasted.onReady();
+		}
+	}
+
+
+	private static attachResizeListeners(individualComponent: AbstractComponent): void {
+		let onResizeCasted = individualComponent as {} as OnResize;
+		if ('onResize' in individualComponent && typeof onResizeCasted.onResize === 'function') {
+			window.addEventListener('resize', () => {
+				onResizeCasted.onResize();
+			});
 		}
 	}
 }
