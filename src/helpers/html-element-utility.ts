@@ -35,14 +35,37 @@ export abstract class HtmlElementUtility {
 	/**
 	 * @description
 	 * Returns the value inside of the attribute of the given element.
-	 * The attribute of the element can either be prefix with "data-" or not. It is found in both cases
+	 * The attribute of the element can either be prefix with "data-" or not. It is found in both cases.
+	 * We also try to convert the given selector from camelcase to kebab-case.
+	 * If no value is found for the converted selector, we try to get the value of the camelcase selector.
 	 * @param {string} selector The data attribute
 	 * @param {HTMLElement} element The element of which the attribute value should be returned
 	 * @return {string}
 	 */
 	public static getSelectorValue(selector: string, element: Element): string {
 		const clearedSelector = selector.replace(/^data-/, '');
-		return element.getAttribute(clearedSelector) || element.getAttribute('data-' + clearedSelector);
+		return getDataAttribute(camelCaseToKebabCase(clearedSelector)) || getDataAttribute(clearedSelector);
+
+		/**
+		 * @description
+		 * Returns the value of the passed selector regardless of the prefixed "data-".
+		 * If both, the selector with and without the prefixed "data-" exists, then the value without the data- is returned.
+		 * @param {string} selector
+		 */
+		function getDataAttribute(selector: string): string {
+			return element.getAttribute(selector) || element.getAttribute('data-' + selector);
+		}
+
+		/**
+		 * @description
+		 * Converts the passes camelcase string to kebab-case
+		 * @param {string} string
+		 * @return {string}
+		 * @see https://gist.github.com/nblackburn/875e6ff75bc8ce171c758bf75f304707
+		 */
+		function camelCaseToKebabCase(string: string): string {
+			return string.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+		}
 	}
 
 	/**
