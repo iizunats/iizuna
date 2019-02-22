@@ -44,7 +44,7 @@ export function EventListener(type: string = null, childSelector: string = null)
 			 * @param {string} type
 			 */
 			function applyEvent(element: Element, type: string | null = null) {
-				let listener = function (event: Event) {
+				let listener = function (this: any, event: Event) {
 					target[propertyKey].apply(object, [this, event]);
 				};
 

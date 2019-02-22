@@ -26,7 +26,7 @@ export function GlobalEventListener(type: string = null) {
 			 * @param {string} type
 			 */
 			function applyEvent(document: Document, type: string | null = null) {
-				let listener = function (event: Event) {
+				let listener = function (this: any, event: Event) {
 					target[propertyKey].apply(object, [this, event]);
 				};
 

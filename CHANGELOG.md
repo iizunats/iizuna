@@ -27,3 +27,6 @@ HTML definition:
 <div my-fancy-selector="value">ALSO NEW</div>
 
 ```
+- adding strict option to typescript compiler for less errors
+- fixing error caused by enabling the strict option
+- using `esnext` instead of `es5` as target for better integration in superior applications

@@ -8,7 +8,7 @@
  */
 export function debounce(callback: any, delay: number, immediate = false): () => void {
 	let timeout: any;
-	return function () {
+	return function (this: any) {
 		const context = this;
 		const args = arguments;
 		const later = function () {

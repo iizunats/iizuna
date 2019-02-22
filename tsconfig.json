@@ -8,11 +8,13 @@
 	],
 	"compilerOptions": {
 		"noImplicitAny": true,
-		"target": "es5",
+		"target": "esnext",
 		"experimentalDecorators": true,
 		"module": "commonjs",
 		"declaration": true,
 		"outDir": "./lib",
-		"strict": false
+		"strict": true,
+		"strictNullChecks": false,
+		"lib": ["es2015","dom"]
 	}
 }
