@@ -13,6 +13,7 @@
 		"module": "commonjs",
 		"declaration": true,
 		"outDir": "./lib",
-		"strict": false
+		"strict": false,
+		"lib": ["es5", "dom", "es2015.symbol"]
 	}
 }

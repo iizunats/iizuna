@@ -6,6 +6,7 @@ import {DomReady} from "./dom-ready";
 import {AbstractComponent} from "../classes/abstract.component";
 import {Promise} from "es6-promise";
 import {OnResize} from "../interfaces/on-resize.interface";
+import {TemplateCache} from "./template.cache";
 
 /**
  * @description
@@ -90,10 +91,19 @@ export abstract class ComponentFactory {
 			individualComponent.__options.templateUrl = tmplAttr;
 		}
 		if (individualComponent.__options.templateUrl) {
-			this.getRequest(individualComponent.__options.templateUrl).then((res: XMLHttpRequest) => {
-				individualComponent.template = new Template(res.responseText);
+			let cachedTemplate = TemplateCache.get(individualComponent.__options.templateUrl);
+			if (individualComponent.__options.templateCachingEnabled === true && cachedTemplate !== null) {
+				individualComponent.template = new Template(cachedTemplate);
 				this.initializeComponentStepB(individualComponent);
-			});
+			} else {
+				this.getRequest(individualComponent.__options.templateUrl).then((res: XMLHttpRequest) => {
+					individualComponent.template = new Template(res.responseText);
+					if (individualComponent.__options.templateCachingEnabled === true) {
+						TemplateCache.set(individualComponent.__options.templateUrl, res.responseText);
+					}
+					this.initializeComponentStepB(individualComponent);
+				});
+			}
 		} else {
 			this.initializeComponentStepB(individualComponent);
 		}
