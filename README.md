@@ -22,7 +22,7 @@ npm install iizuna --save
 ```
 
 
-## What ist iizuna?
+## What is iizuna?
 
 Iizuna came from the idea of ​​designing a truly developer-friendly framework.
 Many of today's TypeScript frameworks, such as Angular or React, are not designed to be used on pages that rely on old-fashioned server-side rendering.
