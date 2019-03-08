@@ -3,7 +3,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+
 ## [Unreleased]
+
+### Added
+
+- ...
+
+## [3.2.0]
 
 ### Added
 - Changelog
@@ -27,3 +34,6 @@ HTML definition:
 <div my-fancy-selector="value">ALSO NEW</div>
 
 ```
+
+- Template cache for Components with Template URL (see Issue #16)
+- missing libs in tsconfig file
