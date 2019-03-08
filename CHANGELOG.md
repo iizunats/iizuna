@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - WindowEventListener Decorator (works like the `GlobalEventListener`, but `window` is used instead of `document`)
 
+### Changed
+
+- Removing a lot of redundant code inside of the *EventListenerDecorator Classes. Keep an eye on these :/
+
 ## [3.2.0]
 
 ### Added

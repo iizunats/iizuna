@@ -1,5 +1,6 @@
 import {ComponentFactory} from "../helpers/component.factory";
 import {AbstractComponent} from "../classes/abstract.component";
+import {EventHelper} from "../helpers/event-helper";
 
 /**
  * @description
@@ -27,28 +28,7 @@ export function EventListener(type: string = null, childSelector: string = null)
 			 * @param {Element} element
 			 */
 			function applyForAllEventTypes(element: Element) {
-				if (typeof type === 'string') {
-					const events = type.split(' ');
-					for (let i = 0; i < events.length; i++) {
-						applyEvent(element, events[i]);
-					}
-				} else {
-					applyEvent(element);
-				}
-			}
-
-			/**
-			 * @description
-			 * Creates a new function that contains the property call with applied scope of the event function
-			 * @param {Element} element
-			 * @param {string} type
-			 */
-			function applyEvent(element: Element, type: string | null = null) {
-				let listener = function (event: Event) {
-					target[propertyKey].apply(object, [this, event]);
-				};
-
-				element.addEventListener(type === null ? propertyKey : type, listener);
+				EventHelper.attachDecoratorListeners(type, element, target, object, propertyKey);
 			}
 		}, target);
 	};
