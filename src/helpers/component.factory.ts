@@ -115,6 +115,7 @@ export abstract class ComponentFactory {
 	 * @description
 	 * Making getRequest
 	 * @param url
+	 * @todo: we should look for a better solution :/
 	 */
 	private static getRequest(url: string): Promise<XMLHttpRequest> {
 		return new Promise((succ, err) => {
@@ -204,7 +205,11 @@ export abstract class ComponentFactory {
 		}
 	}
 
-
+	/**
+	 * @description
+	 * Adds support for the Resize listener.
+	 * @param {AbstractComponent} individualComponent
+	 */
 	private static attachResizeListeners(individualComponent: AbstractComponent): void {
 		let onResizeCasted = individualComponent as {} as OnResize;
 		if ('onResize' in individualComponent && typeof onResizeCasted.onResize === 'function') {
