@@ -45,7 +45,7 @@ export abstract class ComponentFactory {
 			return;
 		}
 		if (!element.matches(restrict)) {
-			console.warn(`Restriction (${restrict}) for`, element, `was ignored! This could lead to unwanted behavior!`);
+			console.warn(`Restriction ("${restrict}") for`, element, `was ignored! This could lead to unwanted behavior!`);
 		}
 	}
 
