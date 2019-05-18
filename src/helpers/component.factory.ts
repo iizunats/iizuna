@@ -27,10 +27,26 @@ export abstract class ComponentFactory {
 				const componentClass = this.createComponentClass(components[i]);
 				const elements = HtmlElementUtility.querySelectAllByAttribute(componentClass.__options.selector, element);
 				for (let j = 0, m = elements.length; j < m; j++) {
+					this.checkElementRestriction(elements[j] as HTMLElement, componentClass.__options.restrict);
 					this.initializeComponentStepA(this.createComponentClass(components[i]), elements[j]);
 				}
 			}
 		});
+	}
+
+	/**
+	 * @description
+	 * Checks for wrong usage of components (e.g. a component that reads the value of an input placed on a select)
+	 * @param {HTMLElement} element
+	 * @param {string} restrict
+	 */
+	private static checkElementRestriction(element: HTMLElement, restrict: string | undefined): void {
+		if (typeof restrict !== 'string') {
+			return;
+		}
+		if (!element.matches(restrict)) {
+			console.warn(`Restriction (${restrict}) for`, element, `was ignored! This could lead to unwanted behavior!`);
+		}
 	}
 
 	/**

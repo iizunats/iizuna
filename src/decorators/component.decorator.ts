@@ -6,7 +6,14 @@ import {AbstractComponent} from "../classes/abstract.component";
  * @param {object} options
  * @internal
  */
-export function Component(options: { selector: string, childrenSelectors?: string[], template?: string, templateUrl?: string, templateCachingEnabled?: boolean }) {
+export function Component(options: {
+	selector: string,
+	childrenSelectors?: string[],
+	template?: string,
+	templateUrl?: string,
+	templateCachingEnabled?: boolean,
+	restrict?: string
+}) {
 	return function <T extends { new(...args: any[]): {} }>(target: T) {
 		return class extends target {
 			constructor(...args: any[]) {
