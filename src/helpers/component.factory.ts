@@ -17,6 +17,32 @@ export abstract class ComponentFactory {
 
 	/**
 	 * @description
+	 * Registers all Components passed as array for the optioanlly passed element. If a component was already registered for the element, skip it. The Class should be passed, not the object!
+	 * @param {*[]} components
+	 * @param element
+	 */
+	public static registerComponentsOnce(components: any[], element: any = document): void {
+		DomReady.ready(() => {
+			for (let i = 0, l = components.length; i < l; i++) {
+				const componentClass = this.createComponentClass(components[i]);
+				const elements = HtmlElementUtility.querySelectAllByAttribute(componentClass.__options.selector, element);
+				const alreadyRegisterdComponents = ComponentRegistry.getComponentsBySelector(componentClass.__options.selector);
+				componentLoop: for (let j = 0, m = elements.length; j < m; j++) {
+					for (let k = 0; k < alreadyRegisterdComponents.length; k++) {
+						if (alreadyRegisterdComponents[k].element === elements[j]) {
+							continue componentLoop;
+						}
+					}
+
+					this.checkElementRestriction(elements[j] as HTMLElement, componentClass.__options.restrict);
+					this.initializeComponentStepA(this.createComponentClass(components[i]), elements[j]);
+				}
+			}
+		});
+	}
+
+	/**
+	 * @description
 	 * Registers all Components passed as array. The Class should be passed, not the object!
 	 * @param {*[]} components
 	 * @param element
