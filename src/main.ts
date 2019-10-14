@@ -1,6 +1,14 @@
 import "./polyfills/cutom-events"
 import "./events/key.events";
+import {Facade} from "./facades/facade";
+import {VariableCacheFacade} from "./facades/caching/variable-cache.facade";
 
+Facade.register('cache', new VariableCacheFacade());
+
+/**
+ * Export facades
+ */
+export {Facade, VariableCacheFacade}
 /**
  * Component related structures
  */
