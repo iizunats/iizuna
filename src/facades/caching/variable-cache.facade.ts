@@ -5,9 +5,15 @@ import {CachingFacadeInterface} from "./caching-facade.interface";
 export class VariableCacheFacade extends Facade implements CachingFacadeInterface<string, any> {
 	private cachingVariable: { [key: string]: any } = {};
 
-	public get(key: string): Promise<any> {
+	/**
+	 * @description
+	 * Returns the item from the variable cache when found. otherwise null
+	 * @param {string} key
+	 * @return {Promise<T>}
+	 */
+	public get<T>(key: string): Promise<T> {
 		return new Promise((resolve) => {
-			resolve(this.cachingVariable[key]);
+			resolve(key in this.cachingVariable ? this.cachingVariable[key] : null);
 		});
 	}
 
