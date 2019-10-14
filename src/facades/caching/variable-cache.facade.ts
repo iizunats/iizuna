@@ -11,7 +11,7 @@ export class VariableCacheFacade extends Facade implements CachingFacadeInterfac
 	 * @param {string} key
 	 * @return {Promise<T>}
 	 */
-	public get<T>(key: string): Promise<T> {
+	public get(key: string): Promise<any> {
 		return new Promise((resolve) => {
 			resolve(key in this.cachingVariable ? this.cachingVariable[key] : null);
 		});
