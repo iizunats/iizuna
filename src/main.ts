@@ -3,12 +3,15 @@ import "./events/key.events";
 import {Facade} from "./facades/facade";
 import {VariableCacheFacade} from "./facades/caching/variable-cache.facade";
 
+// Dirty registering of the VariableCacheFacade
+// We need to remove this in future commits so we don't block the tree shaking for projects not using this feature
 Facade.register('cache', new VariableCacheFacade());
 
 /**
  * Export facades
  */
-export {Facade, VariableCacheFacade}
+export {CachingFacadeInterface} from "./facades/caching/caching-facade.interface";
+export {Facade, VariableCacheFacade};
 /**
  * Component related structures
  */
