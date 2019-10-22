@@ -4,7 +4,7 @@ import 'mocha';
 import {ConfigRegistry} from "../../../src/helpers/config.registry";
 
 
-describe('Template Class', () => {
+describe('Template Class in compatible mode', () => {
 	it('should render a single variable into a defined HTML string containing a variable marker', () => {
 		const template = new Template('<span>${one}</span>');
 		expect(template.render({one: 1})).to.equal('<span>1</span>');
@@ -23,5 +23,23 @@ describe('Template Class', () => {
 		ConfigRegistry.setConfig('template.expressionWrapper', ['###', '###']);
 		const template2 = new Template('<span>###one###</span><span>###one###</span>');
 		expect(template2.render({one: 1})).to.equal('<span>1</span><span>1</span>');
+	});
+});
+
+describe('Template Class in new mode', () => {
+	it('should render a single variable into a defined HTML string containing a variable marker', () => {
+		ConfigRegistry.setConfig('template.compatibleMode', false);
+		const template = new Template('<span>{{one}}</span>');
+		expect(template.render({one: 1})).to.equal('<span>1</span>');
+	});
+	it('should render multiple variables into a defined HTML string containing variable markers', () => {
+		ConfigRegistry.setConfig('template.compatibleMode', false);
+		const template = new Template('<span>{{one}}</span><span>{{two}}</span>');
+		expect(template.render({one: 1, two: 2})).to.equal('<span>1</span><span>2</span>');
+	});
+	it('should render a single variable into a defined HTML string containing a variable marker multiple times', () => {
+		ConfigRegistry.setConfig('template.compatibleMode', false);
+		const template = new Template('<span>{{one}}</span><span>{{one}}</span>');
+		expect(template.render({one: 1})).to.equal('<span>1</span><span>1</span>');
 	});
 });
