@@ -23,7 +23,6 @@ export class Template {
 	}
 
 	public render(vars: any): string {
-		console.log(this.compatibleMode, vars);
 		return this.compatibleMode ? this.renderOldVersion(vars) : this.renderMustache(vars);
 	}
 
