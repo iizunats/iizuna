@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+# future versions (major)
+
+### Added
+- [Mustache](https://github.com/janl/mustache.js) was added as template engine and can be used by calling `ConfigRegistry.setConfig('template.compatibleMode', false);` before calling the registerComponents method. It does not support custom tags or partials at the moment.
+
+### Changed
+- The template syntax with `${variable}` will be removed in future version!
+
 ## [3.5.0]
 
 ### Added
