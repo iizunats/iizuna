@@ -11,6 +11,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - The template syntax with `${variable}` will be removed in future version!
 
+## [3.5.1]
+
+### Added
+- possibility to set the attribute value of a component to `false`
+
+### Changed
+- updated vulnerable dependencies
+
 ## [3.5.0]
 
 ### Added
