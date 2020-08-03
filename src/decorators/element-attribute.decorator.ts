@@ -1,7 +1,7 @@
-import {ConfigRegistry} from "../helpers/config.registry";
-import {ComponentFactory} from "../helpers/component.factory";
-import {HtmlElementUtility} from "../helpers/html-element-utility";
-import {AbstractComponent} from "../classes/abstract.component";
+import {ConfigRegistry} from '../helpers/config.registry';
+import {ComponentFactory} from '../helpers/component.factory';
+import {HtmlElementUtility} from '../helpers/html-element-utility';
+import {AbstractComponent} from '../classes/abstract.component';
 
 /**
  * @description
@@ -15,7 +15,7 @@ export function ElementAttribute(configRegistryIdentifier: string = '') {
 		ComponentFactory.onComponentClassInitialized(function (object: AbstractComponent) {
 			let att = HtmlElementUtility.getSelectorValue(propertyKey, object.element);
 			if (att !== null) { // first get the value of the element attribute
-				object[propertyKey] = att;
+				object[propertyKey] = att === 'false' ? false : att;
 			} else if (configRegistryIdentifier !== '') {//if not set, try to get the global default override.
 				object[propertyKey] = ConfigRegistry.getConfig(configRegistryIdentifier, target[propertyKey] || object[propertyKey]);
 			}
