@@ -26,6 +26,7 @@ npm install iizuna --save
 - https://www.babtec.de/en
 - https://corny.de
 - https://www.bemm.de
+- https://www.hogrefe.com/de/
 
 ## What is iizuna?
 
