@@ -27,7 +27,7 @@ export abstract class AbstractComponent<TComponentOptions extends ComponentOptio
    * This property will be filled automatically if the class was decorated by the Component Decorator.
    * It contains the passed selector string.
    */
-  selector: string;
+  selector: TComponentOptions["selector"];
   /**
    * @description
    * The HTML of the Template that is found if the Component Decorator was correctly configured.
