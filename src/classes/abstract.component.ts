@@ -1,4 +1,4 @@
-import type { ComponentOptions } from "../decorators/component.decorator";
+import { ComponentOptions } from "../decorators/component.decorator";
 import { HtmlElementUtility } from "../helpers/html-element-utility";
 import { Template } from "./template";
 
@@ -38,7 +38,7 @@ export abstract class AbstractComponent<TComponentOptions extends ComponentOptio
    * @description
    * The Elements that are found by the childSelectors configured by the Component Decorator
    */
-  children: { [key in TComponentOptions["childrenSelectors"][number]]: Element[] };
+  children: { [key in TComponentOptions["childrenSelectors"][number]]: NodeListOf<Element> };
   /**
    * @description
    * The complete Configuration passed to the Component Decorator.

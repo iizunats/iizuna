@@ -2,7 +2,7 @@ import { AbstractComponent } from "../classes/abstract.component";
 
 export type ComponentOptions = {
   selector: string;
-  childrenSelectors?: readonly string[];
+  childrenSelectors?: ReadonlyArray<string>;
   template?: string;
   templateUrl?: string;
   templateCachingEnabled?: boolean;
