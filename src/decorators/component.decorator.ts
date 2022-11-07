@@ -1,12 +1,12 @@
 import { AbstractComponent } from "../classes/abstract.component";
 
 export type ComponentOptions = {
-  selector: string;
-  childrenSelectors?: ReadonlyArray<string>;
-  template?: string;
-  templateUrl?: string;
-  templateCachingEnabled?: boolean;
-  restrict?: string;
+        selector: string;
+        childrenSelectors?: ReadonlyArray<string>;
+        template?: string;
+        templateUrl?: string;
+        templateCachingEnabled?: boolean;
+        restrict?: string;
 };
 
 type ExactShape<T, Shape> = T extends Shape ? (Exclude<keyof T, keyof Shape> extends never ? T : never) : never;
@@ -20,7 +20,7 @@ type CreateConfig = <T extends ComponentOptions>(config: ExactShape<T, Component
 export const createConfig: CreateConfig = (config) => config;
 
 export interface Constructor<T> {
-  new (...args: any[]): T;
+        new (...args: any[]): T;
 }
 
 /**
@@ -30,13 +30,13 @@ export interface Constructor<T> {
  * @internal
  */
 export function Component<TOptions extends ComponentOptions = ComponentOptions>(options: ExactShape<TOptions, ComponentOptions>) {
-  return <T extends Constructor<AbstractComponent>>(target: T) =>
-    class extends target {
-      this: AbstractComponent<TOptions>;
+        return <T extends Constructor<AbstractComponent>>(target: T) =>
+                class extends target {
+                        this: AbstractComponent<TOptions>;
 
-      constructor(...args: any[]) {
-        super();
-        this.__options = options;
-      }
-    };
+                        constructor(...args: any[]) {
+                                super();
+                                this.__options = options;
+                        }
+                };
 }
