@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - The template syntax with `${variable}` will be removed in future version!
 
+## [4.0.0]
+- Compile target changed to ES6
+
 ## [3.5.1]
 
 ### Added
