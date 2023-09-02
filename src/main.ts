@@ -30,6 +30,7 @@ export {ElementAttribute} from "./decorators/element-attribute.decorator";
 export {EventListener} from "./decorators/event-listener.decorator";
 export {GlobalEventListener} from "./decorators/global-event-listener.decorator";
 export {WindowEventListener} from "./decorators/window-event-listener.decorator";
+export {EventDispatcher} from "./decorators/event-dispatcher.decorator";
 /**
  * useful functions
  */
