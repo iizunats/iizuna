@@ -7,9 +7,9 @@ import { AbstractComponent } from "../classes/abstract.component";
  * @param {string} name The event type.
  * @constructor
  */
-export function EventDispatcher<T, TComponent extends AbstractComponent>(name: string) {
-	function emit(elem: Element | undefined, config: T): T {
-		const customEventInit: CustomEventInit<T> = { detail: config, bubbles: true };
+export function EventDispatcher<TPayload, TComponent extends AbstractComponent>(name: string) {
+	function emit(elem: Element | undefined, config: TPayload): TPayload {
+		const customEventInit: CustomEventInit<TPayload> = { detail: config, bubbles: true };
 		const event = new CustomEvent(name, customEventInit);
 
 		if (elem) {
@@ -19,7 +19,7 @@ export function EventDispatcher<T, TComponent extends AbstractComponent>(name: s
 		return config;
 	}
 
-	return (_: TComponent, __: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => T>) => {
+	return (_: TComponent, __: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => TPayload>) => {
 		if (!(descriptor.value instanceof Function)) {
 			throw new Error("EventDispatcher must be used as a decorator on a class method.");
 		}
