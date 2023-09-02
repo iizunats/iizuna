@@ -8,12 +8,12 @@
 	],
 	"compilerOptions": {
 		"noImplicitAny": true,
-		"target": "es5",
+		"target": "ES6",
 		"experimentalDecorators": true,
 		"module": "commonjs",
 		"declaration": true,
 		"outDir": "./lib",
 		"strict": false,
-		"lib": ["es5", "dom", "es2015.symbol"]
+		"lib": ["ES6", "dom", "es2015.symbol"]
 	}
 }

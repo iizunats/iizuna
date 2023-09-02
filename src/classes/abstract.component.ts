@@ -1,11 +1,12 @@
-import {Template} from "./template";
-import {HtmlElementUtility} from "../helpers/html-element-utility";
+import { ComponentOptions } from "../decorators/component.decorator";
+import { HtmlElementUtility } from "../helpers/html-element-utility";
+import { Template } from "./template";
 
 /**
  * @description
  * Basically any Component that is created via the Component-Decorator implements this Interface implicit via Type casting
  */
-export abstract class AbstractComponent {
+export abstract class AbstractComponent<TComponentOptions extends ComponentOptions = ComponentOptions> {
 	[index: string]: any;
 
 	/**
@@ -26,7 +27,7 @@ export abstract class AbstractComponent {
 	 * This property will be filled automatically if the class was decorated by the Component Decorator.
 	 * It contains the passed selector string.
 	 */
-	selector: string;
+	selector: TComponentOptions["selector"];
 	/**
 	 * @description
 	 * The HTML of the Template that is found if the Component Decorator was correctly configured.
@@ -37,13 +38,13 @@ export abstract class AbstractComponent {
 	 * @description
 	 * The Elements that are found by the childSelectors configured by the Component Decorator
 	 */
-	children: any;
+	children: { [key in TComponentOptions["childrenSelectors"][number]]: NodeListOf<Element> };
 	/**
 	 * @description
 	 * The complete Configuration passed to the Component Decorator.
 	 * Two underscores, because its not meant to be used outside of the framework
 	 */
-	__options: any;
+	__options: TComponentOptions;
 	/**
 	 * @description
 	 * A property that contains all listeners for component class initialization.
